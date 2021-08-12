@@ -1,3 +1,3 @@
-# DTMoney
+# Hybrid Trial Table
 
-## Project 02 Ignite - ReactJS
+## ReactJS
