@@ -9,10 +9,17 @@ export const Container = styled.div`
       padding: 1rem 0rem;
       text-align: center;
       line-height: 1rem;
+      font-weight: 600;
     }
 
     td {
       text-align: center;
     }
+  }
+
+  .filter {
+    margin-left: auto;
+    margin-right: 0;
+    width: 170px;
   }
 `;
