@@ -1,5 +1,6 @@
 {
-  "name": "forage-hybrid",
+  "name": "forage-hybrid-table",
+  "homepage": "https://devfel.github.io/forage-hybrid-table",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -24,9 +25,12 @@
     "@types/react-dom": "^17.0.0",
     "@types/react-modal": "^3.12.1",
     "@types/styled-components": "^5.1.12",
+    "gh-pages": "^3.2.3",
     "typescript": "^4.1.2"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
