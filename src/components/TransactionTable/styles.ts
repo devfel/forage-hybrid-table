@@ -22,4 +22,10 @@ export const Container = styled.div`
     margin-right: 0;
     width: 170px;
   }
+
+  .footer {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 1rem;
+  }
 `;

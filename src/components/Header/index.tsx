@@ -1,11 +1,18 @@
-import logoImg from "../../assets/logo.svg";
+import logoImg from "../../assets/logo-uf-ifas.jpg";
 import { Container, Content } from "./styles";
 
 export function Header() {
   return (
     <Container>
       <Content>
-        <img src={logoImg} alt="DT Money" />
+        <a href="https://animal.ifas.ufl.edu/extension/courses/csfd/" target="_blank" rel="noopener noreferrer">
+          <img src={logoImg} alt="CSFD Logo" />
+        </a>
+        <button type="button">
+          <a href="https://animal.ifas.ufl.edu/extension/courses/csfd/" target="_blank" rel="noopener noreferrer">
+            Corn Silage and Forage Field Day
+          </a>
+        </button>
       </Content>
     </Container>
   );

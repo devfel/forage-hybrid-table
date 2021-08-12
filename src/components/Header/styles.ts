@@ -1,30 +1,49 @@
 import styled from "styled-components";
+import img from "../../assets/background.png";
 
 export const Container = styled.header`
-  background: var(--blue);
+  background: var(--dark-green);
 `;
 
 export const Content = styled.div`
   max-width: 1120px;
+  height: 230px;
   margin: 0 auto;
 
-  padding: 2rem 1rem 12rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
 
-  button {
-    font-size: 1rem;
-    color: #fff;
-    background: var(--blue-light);
-    border: 0;
-    padding: 0 2rem;
-    border-radius: 0.25rem;
-    height: 2rem;
+  background-image: url(${img});
+
+  img {
+    opacity: 0.9;
+    width: 160px;
+    height: auto;
+    margin-left: 1rem;
+    margin-right: 1rem;
 
     transition: filter 0.2s;
     &:hover {
-      filter: brightness(0.9);
+      filter: brightness(1.1);
+    }
+  }
+
+  button {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    background-color: #fff;
+    opacity: 0.94;
+
+    border: 0;
+    padding: 1rem 2rem;
+    border-radius: 0.4rem;
+
+    transition: filter 0.2s;
+    &:hover {
+      filter: brightness(1.2);
     }
   }
 `;

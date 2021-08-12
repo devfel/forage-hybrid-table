@@ -73,6 +73,14 @@ export function TransactionTable() {
 
   // const TableCellStyle = { borderRight: "1px solid #e5e5e5" };
   const BoldCellStyle = { fontWeight: 600 };
+  // const yearsLookup = {
+  //   2020: "2020",
+  //   2019: "2019",
+  //   2018: "2018",
+  //   2017: "2017",
+  // };
+
+  const seasonLookup = { Spring: "Spring", Summer: "Summer" };
 
   const columns = [
     { title: "Company", field: "company", cellStyle: BoldCellStyle },
@@ -82,8 +90,8 @@ export function TransactionTable() {
     { title: "Milk Production per ton (lb milk/ton)", field: "milkPerTon", filtering: false },
     { title: "Milk production per acre (lb milk/A)", field: "milkPerAcre", filtering: false },
     { title: "Disease score", field: "diseaseScore", filtering: false },
-    { title: "Year", field: "year" },
-    { title: "Season", field: "season" },
+    // { title: "Year", field: "year", lookup: yearsLookup },
+    { title: "Season", field: "season", lookup: seasonLookup },
     { title: "Analysis Type", field: "type" },
   ];
 
@@ -98,6 +106,7 @@ export function TransactionTable() {
       </div>
 
       <MaterialTable
+        icons={{ Filter: (() => <div></div>) as any }}
         columns={columns}
         data={data}
         options={{
@@ -151,8 +160,19 @@ export function TransactionTable() {
             },
           },
         ]}
-        title="Corn and Sorghum Silage Hybrid Trial"
+        title="Corn and Sorghum Silage Hybrid Trial (2020)"
       />
+      <div className="footer">
+        <span>*All the information were gathered from the University of Florida website.</span>
+        <span>
+          Visit{" "}
+          <a href="https://animal.ifas.ufl.edu/extension/courses/csfd/" target="_blank" rel="noopener noreferrer">
+            {" "}
+            https://animal.ifas.ufl.edu/extension/courses/csfd/{" "}
+          </a>{" "}
+          for more details.
+        </span>
+      </div>
     </Container>
   );
 }
