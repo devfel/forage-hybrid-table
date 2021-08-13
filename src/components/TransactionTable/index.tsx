@@ -5,7 +5,7 @@ import Button from "@material-ui/core/Button";
 
 import { useLayoutEffect, useEffect, useState } from "react";
 import { Container } from "./styles";
-import { ScatterChart, CartesianGrid, XAxis, YAxis, ZAxis, Tooltip, Legend, Scatter, ResponsiveContainer } from "recharts";
+import { ScatterChart, CartesianGrid, XAxis, YAxis, ZAxis, Tooltip, Legend, Scatter } from "recharts";
 
 interface dataProps {
   company: string;
