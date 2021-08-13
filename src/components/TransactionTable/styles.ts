@@ -28,4 +28,28 @@ export const Container = styled.div`
     grid-template-columns: 1fr;
     margin: 1rem;
   }
+
+  button {
+    margin: 0.5rem;
+    font-weight: 600;
+    font-family: "Poppins", sans-serif;
+    color: #000;
+  }
+
+  button.selected {
+    margin: 0.5rem;
+    font-weight: 600;
+    font-family: "Poppins", sans-serif;
+    color: #fff;
+    background-color: var(--green);
+  }
+
+  .chart-title {
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  .chart-container {
+    margin: auto;
+  }
 `;

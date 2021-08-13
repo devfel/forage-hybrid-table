@@ -1,9 +1,11 @@
 import MaterialTable from "material-table";
 import Checkbox from "@material-ui/core/Checkbox";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Button from "@material-ui/core/Button";
 
 import { useEffect, useState } from "react";
 import { Container } from "./styles";
+import { ScatterChart, CartesianGrid, XAxis, YAxis, ZAxis, Tooltip, Legend, Scatter, ResponsiveContainer } from "recharts";
 
 interface dataProps {
   company: string;
@@ -31,10 +33,27 @@ interface dataProps {
   type: string;
 }
 
+interface chartDataProps {
+  company: string;
+  hybrid: string;
+  totalProduction: number | string;
+  milkPerTon: number | string;
+  year: number;
+  season: string;
+  type: string;
+}
+
 export function TransactionTable() {
   const [data, setData] = useState<dataProps[]>([]);
   const [filter, setFilter] = useState<boolean>(false);
+  const [chartDataCorn, setChartDataCorn] = useState<chartDataProps[]>([]);
+  const [chartDataCornSilage, setChartDataCornSilage] = useState<chartDataProps[]>([]);
+  const [chartDataForageSoghum, setChartDataForageSoghum] = useState<chartDataProps[]>([]);
+  const [chartDataSoghumSudan, setChartDataSoghumSudan] = useState<chartDataProps[]>([]);
 
+  const [screenSwitch, setScreenSwitch] = useState<string>("table2020");
+
+  // Populating Data Set
   useEffect(() => {
     fetch("https://raw.githubusercontent.com/devfel/forage-hybrid-table/master/src/data/data.json")
       .then((resp) => resp.json())
@@ -71,6 +90,118 @@ export function TransactionTable() {
       });
   }, []);
 
+  // Populating Data Set - Summer Corn (*NO IF ON SEASON)
+  useEffect(() => {
+    const formattedChartDataCorn = data.map((el: chartDataProps) => {
+      if (el.type === "Corn") {
+        return {
+          company: el.company,
+          hybrid: el.hybrid,
+          totalProduction: el.totalProduction,
+          milkPerTon: el.milkPerTon,
+          year: el.year,
+          season: el.season,
+          type: el.type,
+        };
+      } else
+        return {
+          company: "-",
+          hybrid: "-",
+          totalProduction: "-",
+          milkPerTon: "-",
+          year: 0,
+          season: "-",
+          type: "-",
+        };
+    });
+
+    setChartDataCorn(formattedChartDataCorn);
+  }, [data]);
+
+  // Populating Data Set - Spring Corn Silage (*NO IF ON SEASON)
+  useEffect(() => {
+    const formattedChartDataCorn = data.map((el: chartDataProps) => {
+      if (el.type === "Corn Silage") {
+        return {
+          company: el.company,
+          hybrid: el.hybrid,
+          totalProduction: el.totalProduction,
+          milkPerTon: el.milkPerTon,
+          year: el.year,
+          season: el.season,
+          type: el.type,
+        };
+      } else
+        return {
+          company: "-",
+          hybrid: "-",
+          totalProduction: "-",
+          milkPerTon: "-",
+          year: 0,
+          season: "-",
+          type: "-",
+        };
+    });
+
+    setChartDataCornSilage(formattedChartDataCorn);
+  }, [data]);
+
+  // Populating Data Set - Summer Forage Soghum (*NO IF ON SEASON)
+  useEffect(() => {
+    const formattedChartDataCorn = data.map((el: chartDataProps) => {
+      if (el.type === "Forage Soghum") {
+        return {
+          company: el.company,
+          hybrid: el.hybrid,
+          totalProduction: el.totalProduction,
+          milkPerTon: el.milkPerTon,
+          year: el.year,
+          season: el.season,
+          type: el.type,
+        };
+      } else
+        return {
+          company: "-",
+          hybrid: "-",
+          totalProduction: "-",
+          milkPerTon: "-",
+          year: 0,
+          season: "-",
+          type: "-",
+        };
+    });
+
+    setChartDataForageSoghum(formattedChartDataCorn);
+  }, [data]);
+
+  // Populating Data Set - Summer Soghum Sudan (*NO IF ON SEASON)
+  useEffect(() => {
+    const formattedChartDataCorn = data.map((el: chartDataProps) => {
+      if (el.type === "Soghum Sudan") {
+        return {
+          company: el.company,
+          hybrid: el.hybrid,
+          totalProduction: el.totalProduction,
+          milkPerTon: el.milkPerTon,
+          year: el.year,
+          season: el.season,
+          type: el.type,
+        };
+      } else
+        return {
+          company: "-",
+          hybrid: "-",
+          totalProduction: "-",
+          milkPerTon: "-",
+          year: 0,
+          season: "-",
+          type: "-",
+        };
+    });
+
+    setChartDataSoghumSudan(formattedChartDataCorn);
+  }, [data]);
+
   // const TableCellStyle = { borderRight: "1px solid #e5e5e5" };
   const BoldCellStyle = { fontWeight: 600 };
   // const yearsLookup = {
@@ -98,81 +229,135 @@ export function TransactionTable() {
   const handleChangeFilter = () => {
     setFilter(!filter);
   };
+  const handleClickChart = () => {
+    setScreenSwitch("chart2020");
+  };
+  const handleClickTable = () => {
+    setScreenSwitch("table2020");
+  };
 
-  return (
-    <Container>
-      <div className="filter">
-        <FormControlLabel style={{ fontSize: "20rem" }} control={<Checkbox checked={filter} onChange={handleChangeFilter} color="default" />} label="Hide/Show Filters" />
-      </div>
+  if (screenSwitch === "table2020") {
+    return (
+      <Container>
+        <Button onClick={handleClickTable} variant="contained" className="selected">
+          Table
+        </Button>
+        <Button onClick={handleClickChart} variant="contained">
+          Chart
+        </Button>
 
-      <MaterialTable
-        icons={{ Filter: (() => <div></div>) as any }}
-        columns={columns}
-        data={data}
-        options={{
-          filtering: filter,
-          emptyRowsWhenPaging: false,
-          pageSize: 10,
-          pageSizeOptions: [10, 20, 50, 100],
-          exportButton: true,
-          padding: "dense",
-          tableLayout: "auto",
-          headerStyle: {
-            backgroundColor: "#cecece",
-          },
-          rowStyle: {
-            backgroundColor: "#ffffff",
-            fontSize: "85%",
-          },
-        }}
-        detailPanel={[
-          {
-            tooltip: "Show Details",
-            render: (rowData) => {
-              return (
-                <div
-                  style={{
-                    display: "grid",
-                    gridTemplateColumns: "repeat(5, 1fr)",
-                    gap: "1rem",
-                    fontSize: "1rem",
-                    padding: "1rem",
-                    textAlign: "center",
-                    color: "white",
-                    backgroundColor: "#2c8558",
-                  }}
-                >
-                  <p>Relative Maturity: {rowData.relativeMaturity}</p>
-                  <p>Lodging Score: {rowData.lodgingScore}</p>
-                  <p>DM% at Harvest : {rowData.dmAtHarvest}</p>
-                  <p>NEl: {rowData.nel} </p>
-                  <p>TDN: {rowData.tdn} </p>
-                  <p>CP: {rowData.cp} </p>
-                  <p>IVTDMD30: {rowData.ivtdmd30} </p>
-                  <p>Starch: {rowData.starch} </p>
-                  <p>WSC: {rowData.wsc} </p>
-                  <p>ADF: {rowData.adf} </p>
-                  <p>aNDF: {rowData.aNdf} </p>
-                  <p>dNDF30: {rowData.dNdf3} </p>
-                  <p>NDFD30 (%NDF): {rowData.nDfd30Percentage} </p>
-                </div>
-              );
+        <div className="filter">
+          <FormControlLabel style={{ fontSize: "20rem" }} control={<Checkbox checked={filter} onChange={handleChangeFilter} color="default" />} label="Hide/Show Filters" />
+        </div>
+
+        <MaterialTable
+          icons={{ Filter: (() => <div></div>) as any }}
+          columns={columns}
+          data={data}
+          options={{
+            filtering: filter,
+            emptyRowsWhenPaging: false,
+            pageSize: 10,
+            pageSizeOptions: [10, 20, 50, 100],
+            exportButton: true,
+            padding: "dense",
+            tableLayout: "auto",
+            headerStyle: {
+              backgroundColor: "#cecece",
             },
-          },
-        ]}
-        title="Corn and Sorghum Silage Hybrid Trial (2020)"
-      />
-      <div className="footer">
-        <span>*All the information were gathered from the University of Florida website.</span>
-        <span>
-          Visit{" "}
-          <a href="https://animal.ifas.ufl.edu/extension/courses/csfd/" target="_blank" rel="noopener noreferrer">
-            {" "}
-            https://animal.ifas.ufl.edu/extension/courses/csfd/{" "}
-          </a>{" "}
-          for more details.
-        </span>
-      </div>
-    </Container>
-  );
+            rowStyle: {
+              backgroundColor: "#ffffff",
+              fontSize: "85%",
+            },
+          }}
+          detailPanel={[
+            {
+              tooltip: "Show Details",
+              render: (rowData) => {
+                return (
+                  <div
+                    style={{
+                      display: "grid",
+                      gridTemplateColumns: "repeat(5, 1fr)",
+                      gap: "1rem",
+                      fontSize: "1rem",
+                      padding: "1rem",
+                      textAlign: "center",
+                      color: "white",
+                      backgroundColor: "#2c8558",
+                    }}
+                  >
+                    <p>Relative Maturity: {rowData.relativeMaturity}</p>
+                    <p>Lodging Score: {rowData.lodgingScore}</p>
+                    <p>DM% at Harvest : {rowData.dmAtHarvest}</p>
+                    <p>NEl: {rowData.nel} </p>
+                    <p>TDN: {rowData.tdn} </p>
+                    <p>CP: {rowData.cp} </p>
+                    <p>IVTDMD30: {rowData.ivtdmd30} </p>
+                    <p>Starch: {rowData.starch} </p>
+                    <p>WSC: {rowData.wsc} </p>
+                    <p>ADF: {rowData.adf} </p>
+                    <p>aNDF: {rowData.aNdf} </p>
+                    <p>dNDF30: {rowData.dNdf3} </p>
+                    <p>NDFD30 (%NDF): {rowData.nDfd30Percentage} </p>
+                  </div>
+                );
+              },
+            },
+          ]}
+          title="Corn and Sorghum Silage Hybrid Trial (2020)"
+        />
+        <div className="footer">
+          <span>*All the information were gathered from the University of Florida website.</span>
+          <span>
+            Visit{" "}
+            <a href="https://animal.ifas.ufl.edu/extension/courses/csfd/" target="_blank" rel="noopener noreferrer">
+              {" "}
+              https://animal.ifas.ufl.edu/extension/courses/csfd/{" "}
+            </a>{" "}
+            for more details.
+          </span>
+        </div>
+      </Container>
+    );
+  } else {
+    return (
+      <Container>
+        <Button onClick={handleClickTable} variant="contained">
+          Table
+        </Button>
+        <Button onClick={handleClickChart} variant="contained" className="selected">
+          Chart
+        </Button>
+
+        <div className="chart-title">Corn and Sorghum Silage Hybrid Trial (2020)</div>
+        <ResponsiveContainer className="chart-container" width="90%" height={480}>
+          <ScatterChart margin={{ top: 20, right: 30, bottom: 10, left: 30 }}>
+            <CartesianGrid strokeDasharray="1 1" />
+            <ZAxis dataKey="hybrid" name="Hybrid Entry:" unit="" />
+            <XAxis tickCount={5} dataKey="totalProduction" type="number" domain={[6000, 22000]} name="Total Production" unit=" lb DM/A" />
+            <YAxis interval={0} tickCount={5} dataKey="milkPerTon" type="number" domain={[1400, 3800]} name="Milk Production" unit=" lb/ton" />
+            <Tooltip cursor={{ strokeDasharray: "10 10" }} />
+            <Legend />
+            {/* <Scatter name="All" data={data} fill="#000" /> */}
+            <Scatter name="Spring Corn Silage" data={chartDataCornSilage} fill="#8884d8" />
+            <Scatter name="Summer Corn" data={chartDataCorn} fill="#96afa0" />
+            <Scatter name="Summer Forage Soghum" data={chartDataForageSoghum} fill="#443850" />
+            <Scatter name="Summer Soghum Sudan" data={chartDataSoghumSudan} fill="#008f28" />
+          </ScatterChart>
+        </ResponsiveContainer>
+        <div className="footer">
+          <span>*All the information were gathered from the University of Florida website.</span>
+          <span>
+            Visit{" "}
+            <a href="https://animal.ifas.ufl.edu/extension/courses/csfd/" target="_blank" rel="noopener noreferrer">
+              {" "}
+              https://animal.ifas.ufl.edu/extension/courses/csfd/{" "}
+            </a>{" "}
+            for more details.
+          </span>
+        </div>
+      </Container>
+    );
+  }
 }
