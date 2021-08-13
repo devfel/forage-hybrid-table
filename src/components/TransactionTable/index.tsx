@@ -3,7 +3,7 @@ import Checkbox from "@material-ui/core/Checkbox";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Button from "@material-ui/core/Button";
 
-import { useEffect, useState } from "react";
+import { useLayoutEffect, useEffect, useState } from "react";
 import { Container } from "./styles";
 import { ScatterChart, CartesianGrid, XAxis, YAxis, ZAxis, Tooltip, Legend, Scatter, ResponsiveContainer } from "recharts";
 
@@ -43,6 +43,24 @@ interface chartDataProps {
   type: string;
 }
 
+function useWindowSize() {
+  const [size, setSize] = useState([0, 0]);
+  useLayoutEffect(() => {
+    function updateSize() {
+      setSize([window.innerWidth, window.innerHeight]);
+    }
+    window.addEventListener("resize", updateSize);
+    updateSize();
+    return () => window.removeEventListener("resize", updateSize);
+  }, []);
+  return size;
+}
+
+// function ShowWindowDimensions(props) {
+//   const [width, height] = useWindowSize();
+//   return <span>Window size: {width} x {height}</span>;
+// }
+
 export function TransactionTable() {
   const [data, setData] = useState<dataProps[]>([]);
   const [filter, setFilter] = useState<boolean>(false);
@@ -52,6 +70,10 @@ export function TransactionTable() {
   const [chartDataSoghumSudan, setChartDataSoghumSudan] = useState<chartDataProps[]>([]);
 
   const [screenSwitch, setScreenSwitch] = useState<string>("table2020");
+
+  const windowWidth = useWindowSize()[0];
+  const chartWidth = windowWidth > 1120 ? 1120 - 30 : windowWidth - 30;
+  const chartHeight = chartWidth < 600 ? 300 : chartWidth / 2;
 
   // Populating Data Set
   useEffect(() => {
@@ -305,7 +327,7 @@ export function TransactionTable() {
               },
             },
           ]}
-          title="Corn and Sorghum Silage Hybrid Trial (2020)"
+          title="2020 Corn and Sorghum Silage Hybrid Trial"
         />
         <div className="footer">
           <span>*All the information were gathered from the University of Florida website.</span>
@@ -330,22 +352,23 @@ export function TransactionTable() {
           Chart
         </Button>
 
-        <div className="chart-title">Corn and Sorghum Silage Hybrid Trial (2020)</div>
-        <ResponsiveContainer className="chart-container" width="90%" height={480}>
-          <ScatterChart margin={{ top: 20, right: 30, bottom: 10, left: 30 }}>
-            <CartesianGrid strokeDasharray="1 1" />
-            <ZAxis dataKey="hybrid" name="Hybrid Entry:" unit="" />
-            <XAxis tickCount={5} dataKey="totalProduction" type="number" domain={[6000, 22000]} name="Total Production" unit=" lb DM/A" />
-            <YAxis interval={0} tickCount={5} dataKey="milkPerTon" type="number" domain={[1400, 3800]} name="Milk Production" unit=" lb/ton" />
-            <Tooltip cursor={{ strokeDasharray: "10 10" }} />
-            <Legend />
-            {/* <Scatter name="All" data={data} fill="#000" /> */}
-            <Scatter name="Spring Corn Silage" data={chartDataCornSilage} fill="#8884d8" />
-            <Scatter name="Summer Corn" data={chartDataCorn} fill="#96afa0" />
-            <Scatter name="Summer Forage Soghum" data={chartDataForageSoghum} fill="#443850" />
-            <Scatter name="Summer Soghum Sudan" data={chartDataSoghumSudan} fill="#008f28" />
-          </ScatterChart>
-        </ResponsiveContainer>
+        <div className="chart-title">2020 Corn and Sorghum Silage Hybrid Trial</div>
+        <div className="chart-sub-title">Total DM Production (lb DM/ton) X Milk Production (lb milk/ton) </div>
+
+        <ScatterChart className="chart-container" width={chartWidth} height={chartHeight} margin={{ top: 20, right: 30, bottom: 10, left: 0 }}>
+          <CartesianGrid strokeDasharray="1 1" />
+          <ZAxis dataKey="hybrid" name="Hybrid Entry" unit="" />
+          <XAxis tickCount={5} dataKey="totalProduction" type="number" domain={[6000, 22000]} name="Total Production" unit=" lb DM/A" />
+          <YAxis interval={0} tickCount={5} dataKey="milkPerTon" type="number" domain={[1400, 3800]} name="Milk Production" unit=" lb/ton" />
+          <Tooltip cursor={{ strokeDasharray: "10 10" }} />
+          <Legend />
+          {/* <Scatter name="All" data={data} fill="#000" /> */}
+          <Scatter name="Spring Corn Silage" data={chartDataCornSilage} fill="#8884d8" />
+          <Scatter name="Summer Corn" data={chartDataCorn} fill="#96afa0" />
+          <Scatter name="Summer Forage Soghum" data={chartDataForageSoghum} fill="#443850" />
+          <Scatter name="Summer Soghum Sudan" data={chartDataSoghumSudan} fill="#008f28" />
+        </ScatterChart>
+
         <div className="footer">
           <span>*All the information were gathered from the University of Florida website.</span>
           <span>

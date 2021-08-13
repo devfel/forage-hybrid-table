@@ -32,7 +32,7 @@ html {
         font-size: 75%; //13px
     }
 
-    @media (max-width: 720px) {
+    @media (max-width: 768px) {
         font-size: 62.5%; //12px
     }
 }

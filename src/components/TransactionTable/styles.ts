@@ -46,6 +46,12 @@ export const Container = styled.div`
 
   .chart-title {
     margin-top: 2rem;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .chart-sub-title {
+    margin-top: 1rem;
     text-align: center;
   }
 
