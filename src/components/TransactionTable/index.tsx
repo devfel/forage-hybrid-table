@@ -226,26 +226,26 @@ export function TransactionTable() {
 
   // const TableCellStyle = { borderRight: "1px solid #e5e5e5" };
   const BoldCellStyle = { fontWeight: 600 };
-  // const yearsLookup = {
-  //   2020: "2020",
-  //   2019: "2019",
-  //   2018: "2018",
-  //   2017: "2017",
-  // };
+  const yearsLookup = {
+    2020: "2020",
+    2019: "2019",
+    2018: "2018",
+    2017: "2017",
+  };
 
   const seasonLookup = { Spring: "Spring", Summer: "Summer" };
 
   const columns = [
-    { title: "Company", field: "company", cellStyle: BoldCellStyle },
-    { title: "Hybrid", field: "hybrid", cellStyle: BoldCellStyle, filtering: false },
-    { title: "Total Production (lb DM/A)", field: "totalProduction", filtering: false },
-    { title: "Estimated Silage (ton Silage/A)", field: "estimatedSilage", filtering: false },
+    { title: "Company", field: "company", cellStyle: BoldCellStyle, filterPlaceholder: "Type" },
+    { title: "Hybrid", field: "hybrid", cellStyle: BoldCellStyle, filterPlaceholder: "Type" },
+    { title: "Total Production (lb DM/A)", field: "totalProduction", filtering: false, defaultSort: "desc" },
+    //{ title: "Estimated Silage (ton Silage/A)", field: "estimatedSilage", filtering: false },
     { title: "Milk Production per ton (lb milk/ton)", field: "milkPerTon", filtering: false },
     { title: "Milk production per acre (lb milk/A)", field: "milkPerAcre", filtering: false },
     { title: "Disease score", field: "diseaseScore", filtering: false },
-    // { title: "Year", field: "year", lookup: yearsLookup },
-    { title: "Season", field: "season", lookup: seasonLookup },
-    { title: "Species", field: "type" },
+    { title: "Year", field: "year", lookup: yearsLookup, filterPlaceholder: "Select" },
+    { title: "Season", field: "season", lookup: seasonLookup, filterPlaceholder: "Select" },
+    { title: "Species", field: "type", filterPlaceholder: "Select" },
   ];
 
   const handleChangeFilter = () => {
@@ -274,7 +274,7 @@ export function TransactionTable() {
 
         <MaterialTable
           icons={{ Filter: (() => <div></div>) as any }}
-          columns={columns}
+          columns={columns as any}
           data={data}
           options={{
             filtering: filter,
@@ -282,6 +282,7 @@ export function TransactionTable() {
             pageSize: 10,
             pageSizeOptions: [10, 20, 50, 100],
             exportButton: true,
+            exportAllData: true,
             padding: "dense",
             tableLayout: "auto",
             headerStyle: {
@@ -291,6 +292,7 @@ export function TransactionTable() {
               backgroundColor: "#ffffff",
               fontSize: "85%",
             },
+            searchFieldVariant: "outlined",
           }}
           detailPanel={[
             {
@@ -327,7 +329,7 @@ export function TransactionTable() {
               },
             },
           ]}
-          title="2020 Corn and Sorghum Silage Hybrid Trial"
+          title="Corn and Sorghum Silage Hybrid Trial"
         />
         <div className="footer">
           <span>*All the information were gathered from the University of Florida website.</span>
@@ -352,7 +354,7 @@ export function TransactionTable() {
           Chart
         </Button>
 
-        <div className="chart-title">2020 Corn and Sorghum Silage Hybrid Trial</div>
+        <div className="chart-title">Corn and Sorghum Silage Hybrid Trial</div>
         <div className="chart-sub-title">Total DM Production (lb DM/ton) X Milk Production (lb milk/ton) </div>
 
         <ScatterChart className="chart-container" width={chartWidth} height={chartHeight} margin={{ top: 20, right: 30, bottom: 10, left: 0 }}>
