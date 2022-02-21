@@ -245,7 +245,7 @@ export function TransactionTable() {
     { title: "Disease score", field: "diseaseScore", filtering: false },
     // { title: "Year", field: "year", lookup: yearsLookup },
     { title: "Season", field: "season", lookup: seasonLookup },
-    { title: "Analysis Type", field: "type" },
+    { title: "Species", field: "type" },
   ];
 
   const handleChangeFilter = () => {

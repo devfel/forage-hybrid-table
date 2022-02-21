@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import img from "../../assets/background.png";
+import img2 from "../../assets/background.jpg";
+
 
 export const Container = styled.header`
   background: var(--dark-green);
@@ -14,7 +16,7 @@ export const Content = styled.div`
   align-items: center;
   justify-content: space-evenly;
 
-  background-image: url(${img});
+  background-image: url(${img2});
 
   img {
     opacity: 0.9;
@@ -22,8 +24,9 @@ export const Content = styled.div`
     height: auto;
     margin-left: 1rem;
     margin-right: 1rem;
+    border-radius: 0.4rem;
 
-    transition: filter 0.2s;
+    transition: filter 0.4s;
     &:hover {
       filter: brightness(1.1);
     }
