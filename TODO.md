@@ -15,7 +15,10 @@
 - [ ] Change Filter for Species Type from Open to SelectBox with kind of Species.
 - [ ] Add Estimated Silage to the Secondary Information
 - [ ] Change Search Field Styling
-
+- [ ] Change Filters to be Shown as Default (Button Show/Hide Filter Starts as True).
+- [ ] Change the Year Filter to be marked as Last Year per Default.
+- [ ] Change Chart to show only the selected Values instead of whole Data.
+- [ ] Change the Tooltip on Chart to show Company, Hybrid and Values.
 - [ ] Style the Rows with Different Color for "Even" Lines.
 
 
