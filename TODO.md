@@ -9,12 +9,13 @@
 - [X] Change the Title from (2020 Corn and Sorghum Silage Hybrid Trial) to (Corn and Sorghum Silage Hybrid Trial) 0.5h
 - [X] Remove Estimated Silage From Table Main Information: //{ title: "Estimated Silage (ton Silage/A)", field: "estimatedSilage", filtering: false }, 1h
 - [X] Add Default Sorting for Total Production. 2h  { title: "Total Production (lb DM/A)", field: "totalProduction", filtering: false, defaultSort: "desc" }, Property defaultSort not working properly.
+- [X] Adding Filter PlaceHolders. 1h
+- [X] Fix the Export to Export all data instead of selected data only. 1h
 
-- [ ] Add the Filter Species Type for each kind of Species.
-- [ ] Adding Filter PlaceHolders. 1h
+- [ ] Change Filter for Species Type from Open to SelectBox with kind of Species.
 - [ ] Add Estimated Silage to the Secondary Information
 - [ ] Change Search Field Styling
-- [ ] Fix the Export to Export all data instead of selected data only. 1h
+
 - [ ] Style the Rows with Different Color for "Even" Lines.
 
 
