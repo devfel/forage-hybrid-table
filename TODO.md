@@ -20,6 +20,7 @@
 - [ ] Change Chart to show only the selected Values instead of whole Data.
 - [ ] Change the Tooltip on Chart to show Company, Hybrid and Values.
 - [ ] Style the Rows with Different Color for "Even" Lines.
+- [ ] Check where he Silage will be shown //{ title: "Estimated Silage (ton Silage/A)", field: "estimatedSilage", filtering: false }
 
 
 
