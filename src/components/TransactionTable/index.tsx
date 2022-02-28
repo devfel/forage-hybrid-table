@@ -63,7 +63,7 @@ function useWindowSize() {
 
 export function TransactionTable() {
   const [data, setData] = useState<dataProps[]>([]);
-  const [filter, setFilter] = useState<boolean>(false);
+  const [filter, setFilter] = useState<boolean>(true);
   const [chartDataCorn, setChartDataCorn] = useState<chartDataProps[]>([]);
   const [chartDataCornSilage, setChartDataCornSilage] = useState<chartDataProps[]>([]);
   const [chartDataForageSoghum, setChartDataForageSoghum] = useState<chartDataProps[]>([]);
@@ -233,11 +233,18 @@ export function TransactionTable() {
     2017: "2017",
   };
 
+  const speciesLookup = {
+    "Corn Silage": "Corn Silage",
+    Corn: "Corn",
+    "Soghum Sudan": "Soghum Sudan",
+    "Forage Soghum": "Forage Soghum",
+  };
+
   const seasonLookup = { Spring: "Spring", Summer: "Summer" };
 
   const columns = [
-    { title: "Company", field: "company", cellStyle: BoldCellStyle, filterPlaceholder: "Type" },
-    { title: "Hybrid", field: "hybrid", cellStyle: BoldCellStyle, filterPlaceholder: "Type" },
+    { title: "Company", field: "company", cellStyle: BoldCellStyle, filterPlaceholder: "Search" },
+    { title: "Hybrid", field: "hybrid", cellStyle: BoldCellStyle, filterPlaceholder: "Search" },
     { title: "Total Production (lb DM/A)", field: "totalProduction", filtering: false, defaultSort: "desc" },
     //{ title: "Estimated Silage (ton Silage/A)", field: "estimatedSilage", filtering: false },
     { title: "Milk Production per ton (lb milk/ton)", field: "milkPerTon", filtering: false },
@@ -245,7 +252,7 @@ export function TransactionTable() {
     { title: "Disease score", field: "diseaseScore", filtering: false },
     { title: "Year", field: "year", lookup: yearsLookup, filterPlaceholder: "Select" },
     { title: "Season", field: "season", lookup: seasonLookup, filterPlaceholder: "Select" },
-    { title: "Species", field: "type", filterPlaceholder: "Select" },
+    { title: "Species", field: "type", lookup: speciesLookup, filterPlaceholder: "Select" },
   ];
 
   const handleChangeFilter = () => {
@@ -288,8 +295,11 @@ export function TransactionTable() {
             headerStyle: {
               backgroundColor: "#cecece",
             },
-            rowStyle: {
-              backgroundColor: "#ffffff",
+            rowStyle: (data, index, teste) => index % 2 == 0 ? {
+              backgroundColor: "#f8f8f8",
+              fontSize: "85%",
+            } : {
+              backgroundColor: "#fdfdfd",
               fontSize: "85%",
             },
             searchFieldVariant: "outlined",
@@ -312,6 +322,7 @@ export function TransactionTable() {
                     }}
                   >
                     <p>Relative Maturity: {rowData.relativeMaturity}</p>
+                    <p>Estimated Silage (Ton/A): {rowData.estimatedSilage}</p>
                     <p>Lodging Score: {rowData.lodgingScore}</p>
                     <p>DM% at Harvest : {rowData.dmAtHarvest}</p>
                     <p>NEl: {rowData.nel} </p>

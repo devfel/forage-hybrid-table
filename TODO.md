@@ -12,17 +12,18 @@
 - [X] Adding Filter PlaceHolders. 1h
 - [X] Fix the Export to Export all data instead of selected data only. 1h
 
-- [ ] Change Filter for Species Type from Open to SelectBox with kind of Species.
-- [ ] Add Estimated Silage to the Secondary Information
-- [ ] Change Search Field Styling
-- [ ] Change Filters to be Shown as Default (Button Show/Hide Filter Starts as True).
+- [X] Change Filter for Species Type from Open to SelectBox with kind of Species. 2h
+- [X] Add Estimated Silage to the Secondary Information 1h
+- [X] Change Search Field Styling 0.5h
+- [X] Change Filters to be Shown as Default (Button Show/Hide Filter Starts as True). 0.5h
+- [X] Style the Rows with Different Color for "Even" Lines. 2h
+
+- [ ] Style the Property if it is a TOP performer
+- [ ] Check where the Silage will be shown //{ title: "Estimated Silage (ton Silage/A)", field: "estimatedSilage", filtering: false }
 - [ ] Change the Year Filter to be marked as Last Year per Default.
+- [ ] Change the Order of Filter Lookup for Year, so that the most recent year appear first when the user open fiters to select.
 - [ ] Change Chart to show only the selected Values instead of whole Data.
 - [ ] Change the Tooltip on Chart to show Company, Hybrid and Values.
-- [ ] Style the Rows with Different Color for "Even" Lines.
-- [ ] Check where he Silage will be shown //{ title: "Estimated Silage (ton Silage/A)", field: "estimatedSilage", filtering: false }
-
-
 - [ ] Add Filters Fields Outside the Table.
 - [ ] Add Other Data from SpreedSheet.
 
