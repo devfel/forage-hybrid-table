@@ -17,9 +17,10 @@
 - [X] Change Search Field Styling 0.5h
 - [X] Change Filters to be Shown as Default (Button Show/Hide Filter Starts as True). 0.5h
 - [X] Style the Rows with Different Color for "Even" Lines. 2h
+- [X] Check where the Silage will be shown //{ title: "Estimated Silage (ton Silage/A)", field: "estimatedSilage", filtering: false } 0.5h
+
 
 - [ ] Style the Property if it is a TOP performer
-- [ ] Check where the Silage will be shown //{ title: "Estimated Silage (ton Silage/A)", field: "estimatedSilage", filtering: false }
 - [ ] Change the Year Filter to be marked as Last Year per Default.
 - [ ] Change the Order of Filter Lookup for Year, so that the most recent year appear first when the user open fiters to select.
 - [ ] Change Chart to show only the selected Values instead of whole Data.
