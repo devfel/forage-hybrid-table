@@ -22,11 +22,14 @@
 - [X] Update Sample with at least one example of 2019 to check filters. 0.5
 - [X] Add Custom Filter by Year before the Table starts 3h 
 
+
+- [ ] Change Chart to show only the selected Values instead of whole Data. (certify it will work for higher and smallers values predefined on the chart MAX MIN)
+
 - [ ] Style CSS for Custom Filters added before the table.
 - [ ] Style the Property if it is a TOP performer
 - [ ] Change the Year Filter to be marked as Last Year per Default.
 - [ ] Change the Order of Filter Lookup for Year, so that the most recent year appear first when the user open fiters to select.
-- [ ] Change Chart to show only the selected Values instead of whole Data.
+
 - [ ] Change the Tooltip on Chart to show Company, Hybrid and Values.
 - [ ] Add Filters Fields Outside the Table.
 - [ ] Add Other Data from SpreedSheet.
@@ -50,5 +53,5 @@
 
 ### Helpfull Tutorials
 - https://www.youtube.com/watch?v=4TOONPrrlKY - Learn Material Table with React JS | Material Table Tutorial
-
+- https://www.youtube.com/watch?v=RHOu7pt0_G8 - 15. Filtering in Material Table | Material UI
 

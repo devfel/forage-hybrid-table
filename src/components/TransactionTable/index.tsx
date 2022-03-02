@@ -122,7 +122,7 @@ export function TransactionTable() {
 
   // Populating Data Set - Summer Corn (*NO IF ON SEASON)
   useEffect(() => {
-    const formattedChartDataCorn = data.map((el: chartDataProps) => {
+    const formattedChartDataCorn = filteredData.map((el: chartDataProps) => {
       if (el.type === "Corn") {
         return {
           company: el.company,
@@ -146,11 +146,11 @@ export function TransactionTable() {
     });
 
     setChartDataCorn(formattedChartDataCorn);
-  }, [data]);
+  }, [filteredData]);
 
   // Populating Data Set - Spring Corn Silage (*NO IF ON SEASON)
   useEffect(() => {
-    const formattedChartDataCorn = data.map((el: chartDataProps) => {
+    const formattedChartDataCorn = filteredData.map((el: chartDataProps) => {
       if (el.type === "Corn Silage") {
         return {
           company: el.company,
@@ -174,11 +174,11 @@ export function TransactionTable() {
     });
 
     setChartDataCornSilage(formattedChartDataCorn);
-  }, [data]);
+  }, [filteredData]);
 
   // Populating Data Set - Summer Forage Soghum (*NO IF ON SEASON)
   useEffect(() => {
-    const formattedChartDataCorn = data.map((el: chartDataProps) => {
+    const formattedChartDataCorn = filteredData.map((el: chartDataProps) => {
       if (el.type === "Forage Soghum") {
         return {
           company: el.company,
@@ -202,11 +202,11 @@ export function TransactionTable() {
     });
 
     setChartDataForageSoghum(formattedChartDataCorn);
-  }, [data]);
+  }, [filteredData]);
 
   // Populating Data Set - Summer Soghum Sudan (*NO IF ON SEASON)
   useEffect(() => {
-    const formattedChartDataCorn = data.map((el: chartDataProps) => {
+    const formattedChartDataCorn = filteredData.map((el: chartDataProps) => {
       if (el.type === "Soghum Sudan") {
         return {
           company: el.company,
@@ -230,7 +230,7 @@ export function TransactionTable() {
     });
 
     setChartDataSoghumSudan(formattedChartDataCorn);
-  }, [data]);
+  }, [filteredData]);
 
   // const TableCellStyle = { borderRight: "1px solid #e5e5e5" };
   const BoldCellStyle = { fontWeight: 600 };
