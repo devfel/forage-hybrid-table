@@ -19,7 +19,10 @@
 - [X] Style the Rows with Different Color for "Even" Lines. 2h
 - [X] Check where the Silage will be shown //{ title: "Estimated Silage (ton Silage/A)", field: "estimatedSilage", filtering: false } 0.5h
 
+- [X] Update Sample with at least one example of 2019 to check filters. 0.5
+- [X] Add Custom Filter by Year before the Table starts 3h 
 
+- [ ] Style CSS for Custom Filters added before the table.
 - [ ] Style the Property if it is a TOP performer
 - [ ] Change the Year Filter to be marked as Last Year per Default.
 - [ ] Change the Order of Filter Lookup for Year, so that the most recent year appear first when the user open fiters to select.
