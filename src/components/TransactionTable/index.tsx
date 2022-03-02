@@ -1,7 +1,7 @@
 import MaterialTable from "material-table";
-import Checkbox from "@material-ui/core/Checkbox";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Button from "@material-ui/core/Button";
+import { Button, Checkbox, Select, MenuItem } from "@material-ui/core";
+import DataSet from "../../data/data.json"
 
 import { useLayoutEffect, useEffect, useState } from "react";
 import { Container } from "./styles";
@@ -75,6 +75,13 @@ export function TransactionTable() {
   const chartWidth = windowWidth > 1120 ? 1120 - 30 : windowWidth - 30;
   const chartHeight = chartWidth < 600 ? 300 : chartWidth / 2;
 
+  // Customized Filters
+  const [filteredData, setFilteredData] = useState<dataProps[]>([]);
+  const [yearFilter, setYearFilter] = useState<string>("all");
+  useEffect(() => {
+    setFilteredData(yearFilter === "all" ? data : data.filter(dt => dt.year === Number(yearFilter)))
+  }, [yearFilter])
+
   // Populating Data Set
   useEffect(() => {
     fetch("https://raw.githubusercontent.com/devfel/forage-hybrid-table/master/src/data/data.json")
@@ -108,6 +115,7 @@ export function TransactionTable() {
           };
         });
 
+        setFilteredData(formattedData);
         return setData(formattedData);
       });
   }, []);
@@ -275,6 +283,22 @@ export function TransactionTable() {
           Chart
         </Button>
 
+        <br></br><br></br>
+        <p>Filter by Year:</p>
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          style={{ width: 56 }}
+          value={yearFilter}
+          label="Year"
+          onChange={(e) => setYearFilter(e.target.value as any)}
+        >
+          <MenuItem value={"all"}><em>All</em></MenuItem>
+          <MenuItem value={2020}>2020</MenuItem>
+          <MenuItem value={2019}>2019</MenuItem>
+          <MenuItem value={2018}>2018</MenuItem>
+        </Select>
+
         <div className="filter">
           <FormControlLabel style={{ fontSize: "20rem" }} control={<Checkbox checked={filter} onChange={handleChangeFilter} color="default" />} label="Hide/Show Filters" />
         </div>
@@ -282,7 +306,7 @@ export function TransactionTable() {
         <MaterialTable
           icons={{ Filter: (() => <div></div>) as any }}
           columns={columns as any}
-          data={data}
+          data={filteredData}
           options={{
             filtering: filter,
             emptyRowsWhenPaging: false,
