@@ -19,9 +19,12 @@
 - [X] Style the Rows with Different Color for "Even" Lines. 2h
 - [X] Check where the Silage will be shown //{ title: "Estimated Silage (ton Silage/A)", field: "estimatedSilage", filtering: false } 0.5h
 
-- [X] Update Sample with at least one example of 2019 to check filters. 0.5
+- [X] Update Sample with at least one example of 2019 to check filters. 0.5h
 - [X] Add Custom Filter by Year before the Table starts 3h 
+- [X] Change Chart to show only the selected Values instead of whole Data. 1h
 
+- [X] Present Software to Lindsey and Felipe.
+- [ ] Present Software to Ashley. Ask about Interface, Pictures, Logo, Colors, Branding. 
 
 - [ ] Change Chart to show only the selected Values instead of whole Data. (certify it will work for higher and smallers values predefined on the chart MAX MIN)
 
@@ -33,6 +36,7 @@
 - [ ] Change the Tooltip on Chart to show Company, Hybrid and Values.
 - [ ] Add Filters Fields Outside the Table.
 - [ ] Add Other Data from SpreedSheet.
+
 
 
 
