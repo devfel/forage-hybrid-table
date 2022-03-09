@@ -29,6 +29,7 @@
 - [ ] Change Chart to show only the selected Values instead of whole Data. (certify it will work for higher and smallers values predefined on the chart MAX MIN)
 
 - [ ] Style CSS for Custom Filters added before the table.
+- [ ] Select Box Filters need to be automatically filled (year for example needs to read the data and present the years accordingly).
 - [ ] Style the Property if it is a TOP performer
 - [ ] Change the Year Filter to be marked as Last Year per Default.
 - [ ] Change the Order of Filter Lookup for Year, so that the most recent year appear first when the user open fiters to select.
