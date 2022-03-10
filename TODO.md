@@ -24,22 +24,24 @@
 - [X] Change Chart to show only the selected Values instead of whole Data. 1h
 
 - [X] Present Software to Lindsey and Felipe.
-- [ ] Present Software to Ashley. Ask about Interface, Pictures, Logo, Colors, Branding. 
 
-- [ ] Change Chart to show only the selected Values instead of whole Data. (certify it will work for higher and smallers values predefined on the chart MAX MIN)
+- [X] Add Filters Fields Outside the Table (Done with the Year). 3h
+- [X] Change the custom year filter so it is dynamically constructed with all the years available. 3h
+- [X] Change the order of Year Custom filter so last year is first. 1h
+- [X] Add Company Field Select Box Outside the Table (make it so it is dynamically constructed with all companies available). 6h
+- [X] Change Chart to show only the selected Values instead of whole Data. 3h
+
+- [ ] Present Software to Ashley. Ask about Interface, Pictures, Logo, Colors, Branding. 
+- [ ] One custom filter is messing with the other, they are not working toghether, have to be fixed.
 
 - [ ] Style CSS for Custom Filters added before the table.
 - [ ] Select Box Filters need to be automatically filled (year for example needs to read the data and present the years accordingly).
 - [ ] Style the Property if it is a TOP performer
-- [ ] Change the Year Filter to be marked as Last Year per Default.
-- [ ] Change the Order of Filter Lookup for Year, so that the most recent year appear first when the user open fiters to select.
-
+- [ ] Change the Order of Filter Lookup for Year (Default Year), so that the most recent year appear first when the user open fiters to select. (Maybe Wont Be necessary if Default Filters are Removed)
 - [ ] Change the Tooltip on Chart to show Company, Hybrid and Values.
-- [ ] Add Filters Fields Outside the Table.
 - [ ] Add Other Data from SpreedSheet.
-
-
-
+- [ ] Refactor software so Filters are shown in both pages as a component.
+- [ ] With all the correct data, certify chart will work for higher and smallers values predefined on the chart MAX MIN.
 
 ### Back-End
 

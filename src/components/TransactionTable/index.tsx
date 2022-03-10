@@ -6,6 +6,7 @@ import DataSet from "../../data/data.json"
 import { useLayoutEffect, useEffect, useState } from "react";
 import { Container } from "./styles";
 import { ScatterChart, CartesianGrid, XAxis, YAxis, ZAxis, Tooltip, Legend, Scatter } from "recharts";
+import { Console } from "console";
 
 interface dataProps {
   company: string;
@@ -81,6 +82,10 @@ export function TransactionTable() {
   useEffect(() => {
     setFilteredData(yearFilter === "all" ? data : data.filter(dt => dt.year === Number(yearFilter)))
   }, [yearFilter])
+  const [companyFilter, setCompanyFilter] = useState<string>("all");
+  useEffect(() => {
+    setFilteredData(companyFilter === "all" ? data : data.filter(dt => dt.company === (companyFilter)))
+  }, [companyFilter])
 
   // Populating Data Set
   useEffect(() => {
@@ -273,6 +278,12 @@ export function TransactionTable() {
     setScreenSwitch("table2020");
   };
 
+  //Variables to populate filters dinamically 
+  const allYears = data.map(el => el.year);
+  const allYearsSingle = Array.from(new Set(allYears)).reverse();
+  const allCompanies = data.map(el => el.company);
+  const allCompaniesSingle = Array.from(new Set(allCompanies));
+
   if (screenSwitch === "table2020") {
     return (
       <Container>
@@ -286,18 +297,36 @@ export function TransactionTable() {
         <br></br><br></br>
         <p>Filter by Year:</p>
         <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
+          labelId="filter-year-label"
+          id="filter-year-id"
           style={{ width: 56 }}
           value={yearFilter}
           label="Year"
           onChange={(e) => setYearFilter(e.target.value as any)}
         >
           <MenuItem value={"all"}><em>All</em></MenuItem>
+          {allYearsSingle.map(el => <MenuItem value={el}>{el}</MenuItem>)}
+
+          {/* //Old Method used to Populate Filters Manually
           <MenuItem value={2020}>2020</MenuItem>
           <MenuItem value={2019}>2019</MenuItem>
           <MenuItem value={2018}>2018</MenuItem>
-          <MenuItem value={2018}>2017</MenuItem>
+          <MenuItem value={2017}>2017</MenuItem>
+          */ }
+        </Select>
+
+        <br></br><br></br>
+        <p>Filter by Company:</p>
+        <Select
+          labelId="filter-company-label"
+          id="filter-company-id"
+          style={{ width: 180 }}
+          value={companyFilter}
+          label="Company"
+          onChange={(e) => setCompanyFilter(e.target.value as any)}
+        >
+          <MenuItem value={"all"}><em>All</em></MenuItem>
+          {allCompaniesSingle.map(el => <MenuItem value={el}>{el}</MenuItem>)}
         </Select>
 
         <div className="filter">
@@ -397,7 +426,7 @@ export function TransactionTable() {
           <CartesianGrid strokeDasharray="1 1" />
           <ZAxis dataKey="hybrid" name="Hybrid Entry" unit="" />
           <XAxis tickCount={5} dataKey="totalProduction" type="number" domain={[6000, 22000]} name="Total Production" unit=" lb DM/A" />
-          <YAxis interval={0} tickCount={5} dataKey="milkPerTon" type="number" domain={[1400, 3800]} name="Milk Production" unit=" lb/ton" />
+          <YAxis interval={0} tickCount={5} dataKey="milkPerTon" type="number" domain={[1400, 3800]} name="Milk Production" unit=" mk/ton" />
           <Tooltip cursor={{ strokeDasharray: "10 10" }} />
           <Legend />
           {/* <Scatter name="All" data={data} fill="#000" /> */}
