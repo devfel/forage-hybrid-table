@@ -34,6 +34,7 @@
 - [ ] Present Software to Ashley. Ask about Interface, Pictures, Logo, Colors, Branding. 
 - [ ] One custom filter is messing with the other, they are not working toghether, have to be fixed.
 - [ ] Create Custom Filter for Season.
+- [ ] Create Custom Filter for Species.
 
 - [ ] Style CSS for Custom Filters added before the table.
 - [ ] Select Box Filters need to be automatically filled (year for example needs to read the data and present the years accordingly).
