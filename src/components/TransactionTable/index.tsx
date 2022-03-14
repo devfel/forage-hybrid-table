@@ -76,16 +76,30 @@ export function TransactionTable() {
   const chartWidth = windowWidth > 1120 ? 1120 - 30 : windowWidth - 30;
   const chartHeight = chartWidth < 600 ? 300 : chartWidth / 2;
 
+  //////////////////////////////////////////
   // Customized Filters
+  //////////////////////////////////////////
   const [filteredData, setFilteredData] = useState<dataProps[]>([]);
   const [yearFilter, setYearFilter] = useState<string>("all");
-  useEffect(() => {
-    setFilteredData(yearFilter === "all" ? data : data.filter(dt => dt.year === Number(yearFilter)))
-  }, [yearFilter])
   const [companyFilter, setCompanyFilter] = useState<string>("all");
+
   useEffect(() => {
-    setFilteredData(companyFilter === "all" ? data : data.filter(dt => dt.company === (companyFilter)))
-  }, [companyFilter])
+    const year_filtered = selectedYearFilter(data)
+    const company_filtered = selectedCompanyFilter(year_filtered)
+
+    setFilteredData(company_filtered)
+
+  }, [yearFilter, companyFilter])
+
+  function selectedYearFilter(auxData: dataProps[]): dataProps[] {
+    return (yearFilter === "all" ? auxData : auxData.filter(dt => dt.year === Number(yearFilter)))
+  }
+  function selectedCompanyFilter(auxData: dataProps[]): dataProps[] {
+    return (companyFilter === "all" ? auxData : auxData.filter(dt => dt.company === (companyFilter)))
+  }
+  //////////////////////////////////////////
+  // End of Customized Filters
+  //////////////////////////////////////////
 
   // Populating Data Set
   useEffect(() => {
