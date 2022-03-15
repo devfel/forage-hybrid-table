@@ -82,14 +82,16 @@ export function TransactionTable() {
   const [filteredData, setFilteredData] = useState<dataProps[]>([]);
   const [yearFilter, setYearFilter] = useState<string>("all");
   const [companyFilter, setCompanyFilter] = useState<string>("all");
+  const [seasonFilter, setSeasonFilter] = useState<string>("all");
 
   useEffect(() => {
     const year_filtered = selectedYearFilter(data)
     const company_filtered = selectedCompanyFilter(year_filtered)
+    const season_filtered = selectedSeasonFilter(company_filtered)
 
-    setFilteredData(company_filtered)
+    setFilteredData(season_filtered)
 
-  }, [yearFilter, companyFilter])
+  }, [yearFilter, companyFilter, seasonFilter])
 
   function selectedYearFilter(auxData: dataProps[]): dataProps[] {
     return (yearFilter === "all" ? auxData : auxData.filter(dt => dt.year === Number(yearFilter)))
@@ -97,6 +99,10 @@ export function TransactionTable() {
   function selectedCompanyFilter(auxData: dataProps[]): dataProps[] {
     return (companyFilter === "all" ? auxData : auxData.filter(dt => dt.company === (companyFilter)))
   }
+  function selectedSeasonFilter(auxData: dataProps[]): dataProps[] {
+    return (seasonFilter === "all" ? auxData : auxData.filter(dt => dt.season === (seasonFilter)))
+  }
+
   //////////////////////////////////////////
   // End of Customized Filters
   //////////////////////////////////////////
@@ -297,6 +303,8 @@ export function TransactionTable() {
   const allYearsSingle = Array.from(new Set(allYears)).reverse();
   const allCompanies = data.map(el => el.company);
   const allCompaniesSingle = Array.from(new Set(allCompanies));
+  const allSeasons = data.map(el => el.season);
+  const allSeasonsSingle = Array.from(new Set(allSeasons));
 
   if (screenSwitch === "table2020") {
     return (
@@ -342,6 +350,22 @@ export function TransactionTable() {
           <MenuItem value={"all"}><em>All</em></MenuItem>
           {allCompaniesSingle.map(el => <MenuItem value={el}>{el}</MenuItem>)}
         </Select>
+
+        <br></br><br></br>
+        <p>Filter by Season:</p>
+        <Select
+          labelId="filter-season-label"
+          id="filter-season-id"
+          style={{ width: 180 }}
+          value={seasonFilter}
+          label="Season"
+          onChange={(e) => setSeasonFilter(e.target.value as any)}
+        >
+          <MenuItem value={"all"}><em>All</em></MenuItem>
+          {allSeasonsSingle.map(el => <MenuItem value={el}>{el}</MenuItem>)}
+        </Select>
+
+
 
         <div className="filter">
           <FormControlLabel style={{ fontSize: "20rem" }} control={<Checkbox checked={filter} onChange={handleChangeFilter} color="default" />} label="Hide/Show Filters" />
