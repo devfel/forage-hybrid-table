@@ -15,8 +15,29 @@ export const Container = styled.div`
   }
 
   .custom-filter-item {
+    display: flex;
+    align-items: center;
+    margin: 0.2rem 0rem;
+  }
+
+  .custom-filter-item:last-child{
+    margin-bottom: 2rem;
+  }
+
+  .custom-filter-item p{
+    width: 150px;
+  }
+
+  .custom-filter-item .select-filter{
+    background-color: #e0e0e0;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    width: 180px;
+  }
+
+  .show-filter-select-box {
     margin: 0.5rem 0rem;
-    background-color: #666;
+    width: 170px;
   }
 
   table {
@@ -35,11 +56,7 @@ export const Container = styled.div`
     }
   }
 
-  .filter {
-    margin-left: auto;
-    margin-right: 0;
-    width: 170px;
-  }
+
 
   .footer {
     display: grid;

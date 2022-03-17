@@ -64,7 +64,7 @@ function useWindowSize() {
 
 export function TransactionTable() {
   const [data, setData] = useState<dataProps[]>([]);
-  const [filter, setFilter] = useState<boolean>(true);
+  const [filter, setFilter] = useState<boolean>(false);
   const [chartDataCorn, setChartDataCorn] = useState<chartDataProps[]>([]);
   const [chartDataCornSilage, setChartDataCornSilage] = useState<chartDataProps[]>([]);
   const [chartDataForageSoghum, setChartDataForageSoghum] = useState<chartDataProps[]>([]);
@@ -316,35 +316,21 @@ export function TransactionTable() {
           Chart
         </Button>
 
+        {/* Not using the original filters
+        <div className="show-filter-select-box">
+          <FormControlLabel style={{ fontSize: "20rem" }} control={<Checkbox checked={filter} onChange={handleChangeFilter} color="default" />} label="Hide/Show Filters" />
+        </div>
+        */}
+        <div className="show-filter-select-box">
+          <p style={{ fontSize: "1rem" }}> <b>Available Filters</b> </p>
+        </div>
+
         <div className="custom-filters">
-          <div className="custom-year-filter custom-filter-item">
-            <p>Filter by Year:</p>
-            <Select
-              labelId="filter-year-label"
-              id="filter-year-id"
-              style={{ width: 56 }}
-              value={yearFilter}
-              label="Year"
-              onChange={(e) => setYearFilter(e.target.value as any)}
-            >
-              <MenuItem value={"all"}><em>All</em></MenuItem>
-              {allYearsSingle.map(el => <MenuItem value={el}>{el}</MenuItem>)}
-
-              {/* //Old Method used to Populate Filters Manually
-            <MenuItem value={2020}>2020</MenuItem>
-            <MenuItem value={2019}>2019</MenuItem>
-            <MenuItem value={2018}>2018</MenuItem>
-            <MenuItem value={2017}>2017</MenuItem>
-            */ }
-            </Select>
-          </div>
-
           <div className="custom-company-filter custom-filter-item">
             <p>Filter by Company:</p>
-            <Select
+            <Select className="select-filter"
               labelId="filter-company-label"
               id="filter-company-id"
-              style={{ width: 180 }}
               value={companyFilter}
               label="Company"
               onChange={(e) => setCompanyFilter(e.target.value as any)}
@@ -354,12 +340,35 @@ export function TransactionTable() {
             </Select>
           </div>
 
+
+          <div className="custom-year-filter custom-filter-item">
+            <p>Filter by Year:</p>
+            <Select className="select-filter"
+              labelId="filter-year-label"
+              id="filter-year-id"
+              value={yearFilter}
+              label="Year"
+              onChange={(e) => setYearFilter(e.target.value as any)}
+            >
+              <MenuItem value={"all"}><em>All</em></MenuItem>
+              {allYearsSingle.map(el => <MenuItem value={el}>{el}</MenuItem>)}
+
+              {/* //Old Method used to Populate Filters Manually
+              <MenuItem value={2020}>2020</MenuItem>
+              <MenuItem value={2019}>2019</MenuItem>
+              <MenuItem value={2018}>2018</MenuItem>
+              <MenuItem value={2017}>2017</MenuItem>
+              */ }
+            </Select>
+          </div>
+
+
+
           <div className="custom-season-filter custom-filter-item">
             <p>Filter by Season:</p>
-            <Select
+            <Select className="select-filter"
               labelId="filter-season-label"
               id="filter-season-id"
-              style={{ width: 180 }}
               value={seasonFilter}
               label="Season"
               onChange={(e) => setSeasonFilter(e.target.value as any)}
@@ -371,9 +380,6 @@ export function TransactionTable() {
         </div>
 
 
-        <div className="filter">
-          <FormControlLabel style={{ fontSize: "20rem" }} control={<Checkbox checked={filter} onChange={handleChangeFilter} color="default" />} label="Hide/Show Filters" />
-        </div>
 
         <MaterialTable
           icons={{ Filter: (() => <div></div>) as any }}
