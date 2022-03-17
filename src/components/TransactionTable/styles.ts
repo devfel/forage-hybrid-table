@@ -1,6 +1,14 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  //Fix Display Here
+  /* max-width: 1120px;
+  height: 230px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly; */
+  
   table {
     width: 100%;
 
@@ -58,4 +66,5 @@ export const Container = styled.div`
   .chart-container {
     margin: auto;
   }
+
 `;
