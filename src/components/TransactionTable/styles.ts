@@ -8,7 +8,17 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-evenly; */
-  
+  .custom-filters {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+  }
+
+  .custom-filter-item {
+    margin: 0.5rem 0rem;
+    background-color: #666;
+  }
+
   table {
     width: 100%;
 

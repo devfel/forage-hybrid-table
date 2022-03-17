@@ -316,55 +316,59 @@ export function TransactionTable() {
           Chart
         </Button>
 
-        <br></br><br></br>
-        <p>Filter by Year:</p>
-        <Select
-          labelId="filter-year-label"
-          id="filter-year-id"
-          style={{ width: 56 }}
-          value={yearFilter}
-          label="Year"
-          onChange={(e) => setYearFilter(e.target.value as any)}
-        >
-          <MenuItem value={"all"}><em>All</em></MenuItem>
-          {allYearsSingle.map(el => <MenuItem value={el}>{el}</MenuItem>)}
+        <div className="custom-filters">
+          <div className="custom-year-filter custom-filter-item">
+            <p>Filter by Year:</p>
+            <Select
+              labelId="filter-year-label"
+              id="filter-year-id"
+              style={{ width: 56 }}
+              value={yearFilter}
+              label="Year"
+              onChange={(e) => setYearFilter(e.target.value as any)}
+            >
+              <MenuItem value={"all"}><em>All</em></MenuItem>
+              {allYearsSingle.map(el => <MenuItem value={el}>{el}</MenuItem>)}
 
-          {/* //Old Method used to Populate Filters Manually
-          <MenuItem value={2020}>2020</MenuItem>
-          <MenuItem value={2019}>2019</MenuItem>
-          <MenuItem value={2018}>2018</MenuItem>
-          <MenuItem value={2017}>2017</MenuItem>
-          */ }
-        </Select>
+              {/* //Old Method used to Populate Filters Manually
+            <MenuItem value={2020}>2020</MenuItem>
+            <MenuItem value={2019}>2019</MenuItem>
+            <MenuItem value={2018}>2018</MenuItem>
+            <MenuItem value={2017}>2017</MenuItem>
+            */ }
+            </Select>
+          </div>
 
-        <br></br><br></br>
-        <p>Filter by Company:</p>
-        <Select
-          labelId="filter-company-label"
-          id="filter-company-id"
-          style={{ width: 180 }}
-          value={companyFilter}
-          label="Company"
-          onChange={(e) => setCompanyFilter(e.target.value as any)}
-        >
-          <MenuItem value={"all"}><em>All</em></MenuItem>
-          {allCompaniesSingle.map(el => <MenuItem value={el}>{el}</MenuItem>)}
-        </Select>
+          <div className="custom-company-filter custom-filter-item">
+            <p>Filter by Company:</p>
+            <Select
+              labelId="filter-company-label"
+              id="filter-company-id"
+              style={{ width: 180 }}
+              value={companyFilter}
+              label="Company"
+              onChange={(e) => setCompanyFilter(e.target.value as any)}
+            >
+              <MenuItem value={"all"}><em>All</em></MenuItem>
+              {allCompaniesSingle.map(el => <MenuItem value={el}>{el}</MenuItem>)}
+            </Select>
+          </div>
 
-        <br></br><br></br>
-        <p>Filter by Season:</p>
-        <Select
-          labelId="filter-season-label"
-          id="filter-season-id"
-          style={{ width: 180 }}
-          value={seasonFilter}
-          label="Season"
-          onChange={(e) => setSeasonFilter(e.target.value as any)}
-        >
-          <MenuItem value={"all"}><em>All</em></MenuItem>
-          {allSeasonsSingle.map(el => <MenuItem value={el}>{el}</MenuItem>)}
-        </Select>
-
+          <div className="custom-season-filter custom-filter-item">
+            <p>Filter by Season:</p>
+            <Select
+              labelId="filter-season-label"
+              id="filter-season-id"
+              style={{ width: 180 }}
+              value={seasonFilter}
+              label="Season"
+              onChange={(e) => setSeasonFilter(e.target.value as any)}
+            >
+              <MenuItem value={"all"}><em>All</em></MenuItem>
+              {allSeasonsSingle.map(el => <MenuItem value={el}>{el}</MenuItem>)}
+            </Select>
+          </div>
+        </div>
 
 
         <div className="filter">
