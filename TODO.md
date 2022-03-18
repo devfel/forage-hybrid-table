@@ -23,7 +23,7 @@
 - [X] Add Custom Filter by Year before the Table starts 3h 
 - [X] Change Chart to show only the selected Values instead of whole Data. 1h
 
-- [X] Present Software to Lindsey and Felipe.
+- [X] Present Software to Lindsey and Felipe and talk about the data on the Spreadsheets. 1h
 
 - [X] Add Filters Fields Outside the Table (Done with the Year). 3h
 - [X] Change the custom year filter so it is dynamically constructed with all the years available. 3h
@@ -31,19 +31,25 @@
 - [X] Add Company Field Select Box Outside the Table (make it so it is dynamically constructed with all companies available). 6h
 - [X] Change Chart to show only the selected Values instead of whole Data. 3h
 
+- [X] Create Custom Filter for Season. 2h
+- [X] Style CSS for Custom Filters added before the table. 6h
+- [X] Select Box Filters need to be automatically filled (year for example needs to read the data and present the years accordingly). 5h
+- [X] One custom filter is messing with the other, they are not working toghether, have to be fixed. 6h
+- [X] Remove Original Filters and change the logic so it start without showing original filters. 2h
+- [X] Remove button to show/hide Original Filters. 1h
+
 - [ ] Present Software to Ashley. Ask about Interface, Pictures, Logo, Colors, Branding. 
-- [ ] One custom filter is messing with the other, they are not working toghether, have to be fixed.
-- [ ] Create Custom Filter for Season.
 - [ ] Create Custom Filter for Species.
 
-- [ ] Style CSS for Custom Filters added before the table.
-- [ ] Select Box Filters need to be automatically filled (year for example needs to read the data and present the years accordingly).
 - [ ] Style the Property if it is a TOP performer
-- [ ] Change the Order of Filter Lookup for Year (Default Year), so that the most recent year appear first when the user open fiters to select. (Maybe Wont Be necessary if Default Filters are Removed)
 - [ ] Change the Tooltip on Chart to show Company, Hybrid and Values.
 - [ ] Add Other Data from SpreedSheet.
 - [ ] Refactor software so Filters are shown in both pages as a component.
+- [ ] Refactor source code as components to be easier to maintain and update.
 - [ ] With all the correct data, certify chart will work for higher and smallers values predefined on the chart MAX MIN.
+
+
+- [Not] Change the Order of Filter Lookup for Year (Default Year), so that the most recent year appear first when the user open fiters to select. (Maybe Wont Be necessary if Default Filters are Removed)
 
 ### Back-End
 
