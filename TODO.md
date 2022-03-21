@@ -40,6 +40,7 @@
 
 - [ ] Present Software to Ashley. Ask about Interface, Pictures, Logo, Colors, Branding. 
 - [ ] Create Custom Filter for Species.
+- [ ] Do the Custom Search Bar for Hybrid Names. 
 
 - [ ] Style the Property if it is a TOP performer
 - [ ] Change the Tooltip on Chart to show Company, Hybrid and Values.
