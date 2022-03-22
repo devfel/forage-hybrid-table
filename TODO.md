@@ -41,6 +41,9 @@
 - [ ] Present Software to Ashley. Ask about Interface, Pictures, Logo, Colors, Branding. 
 - [ ] Create Custom Filter for Species.
 - [ ] Do the Custom Search Bar for Hybrid Names. 
+- [ ] Make Last Year avaible at default on the Search.
+- [ ] Change which columns will be shown as primary and as secondary.
+- [ ] Change the Titles of columns and secondary charactersitics.
 
 - [ ] Style the Property if it is a TOP performer
 - [ ] Change the Tooltip on Chart to show Company, Hybrid and Values.
