@@ -79,17 +79,28 @@ export function TransactionTable() {
   //////////////////////////////////////////
   // Customized Filters
   //////////////////////////////////////////
+
+  // Set Last Year Function Did Not Work.
+  // function getMostRecentYear(auxData: dataProps[]): number {
+  //   const test = (auxData.map(dt => dt.year));
+  //   console.log(test);
+  //   return Math.max(...test);
+
+  //   return 2019;
+  // }
+  // //const [yearFilter, setYearFilter] = useState<string>(getMostRecentYear(data).toString());
+
   const [filteredData, setFilteredData] = useState<dataProps[]>([]);
   const [yearFilter, setYearFilter] = useState<string>("all");
   const [companyFilter, setCompanyFilter] = useState<string>("all");
   const [seasonFilter, setSeasonFilter] = useState<string>("all");
 
   useEffect(() => {
-    const year_filtered = selectedYearFilter(data)
-    const company_filtered = selectedCompanyFilter(year_filtered)
-    const season_filtered = selectedSeasonFilter(company_filtered)
+    const year_filtered = selectedYearFilter(data);
+    const company_filtered = selectedCompanyFilter(year_filtered);
+    const season_filtered = selectedSeasonFilter(company_filtered);
 
-    setFilteredData(season_filtered)
+    setFilteredData(season_filtered);
 
   }, [yearFilter, companyFilter, seasonFilter])
 
