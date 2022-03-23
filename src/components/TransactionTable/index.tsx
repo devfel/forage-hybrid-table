@@ -95,6 +95,16 @@ export function TransactionTable() {
   const [companyFilter, setCompanyFilter] = useState<string>("all");
   const [seasonFilter, setSeasonFilter] = useState<string>("all");
 
+  /*
+  useEffect(() => {
+    const year_initial_filtered = selectedInitialYearFilter(data);
+    setFilteredData(year_initial_filtered);
+  }, [])
+
+  function selectedInitialYearFilter(auxData: dataProps[]): dataProps[] {
+    return (auxData.filter(dt => dt.year === Number("2019")))
+  }*/
+
   useEffect(() => {
     const year_filtered = selectedYearFilter(data);
     const company_filtered = selectedCompanyFilter(year_filtered);
@@ -103,6 +113,7 @@ export function TransactionTable() {
     setFilteredData(season_filtered);
 
   }, [yearFilter, companyFilter, seasonFilter])
+
 
   function selectedYearFilter(auxData: dataProps[]): dataProps[] {
     return (yearFilter === "all" ? auxData : auxData.filter(dt => dt.year === Number(yearFilter)))
