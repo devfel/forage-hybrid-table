@@ -53,6 +53,16 @@
 - [ ] Refactor source code as components to be easier to maintain and update.
 - [ ] With all the correct data, certify chart will work for higher and smallers values predefined on the chart MAX MIN.
 
+- Changes to be made after Meeting with Ashley.
+- [ ] Change the Header Logo.
+- [ ] Change Header Background image.
+- [ ] Change the Header Software Title/Name. 
+- [ ] Change the Color of the Title Bar to Blue and Font to White.
+- [ ] Change the Title from "Corn and Sorghum Silage Hybrid Trial” to “UF Silage Hybrid Trial”
+- [ ] Add How to use the system button/link.
+- [ ] Add contact info at the bottom (Contact us at forages@ifas.ufl.edu)
+
+
 
 - [Not] Change the Order of Filter Lookup for Year (Default Year), so that the most recent year appear first when the user open fiters to select. (Maybe Wont Be necessary if Default Filters are Removed)
 
