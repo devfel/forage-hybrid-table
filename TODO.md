@@ -38,10 +38,11 @@
 - [X] Remove Original Filters and change the logic so it start without showing original filters. 2h
 - [X] Remove button to show/hide Original Filters. 1h
 
+- [ ] Make Last Year avaible as default on the Search.
+
 - [ ] Present Software to Ashley. Ask about Interface, Pictures, Logo, Colors, Branding. 
 - [ ] Create Custom Filter for Species.
 - [ ] Do the Custom Search Bar for Hybrid Names. 
-- [ ] Make Last Year avaible at default on the Search.
 - [ ] Change which columns will be shown as primary and as secondary.
 - [ ] Change the Titles of columns and secondary charactersitics.
 

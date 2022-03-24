@@ -80,30 +80,10 @@ export function TransactionTable() {
   // Customized Filters
   //////////////////////////////////////////
 
-  // Set Last Year Function Did Not Work.
-  // function getMostRecentYear(auxData: dataProps[]): number {
-  //   const test = (auxData.map(dt => dt.year));
-  //   console.log(test);
-  //   return Math.max(...test);
-
-  //   return 2019;
-  // }
-  // //const [yearFilter, setYearFilter] = useState<string>(getMostRecentYear(data).toString());
-
   const [filteredData, setFilteredData] = useState<dataProps[]>([]);
   const [yearFilter, setYearFilter] = useState<string>("all");
   const [companyFilter, setCompanyFilter] = useState<string>("all");
   const [seasonFilter, setSeasonFilter] = useState<string>("all");
-
-  /*
-  useEffect(() => {
-    const year_initial_filtered = selectedInitialYearFilter(data);
-    setFilteredData(year_initial_filtered);
-  }, [])
-
-  function selectedInitialYearFilter(auxData: dataProps[]): dataProps[] {
-    return (auxData.filter(dt => dt.year === Number("2019")))
-  }*/
 
   useEffect(() => {
     const year_filtered = selectedYearFilter(data);
@@ -163,9 +143,12 @@ export function TransactionTable() {
         });
 
         setFilteredData(formattedData);
+        setData(formattedData);
         return setData(formattedData);
       });
   }, []);
+
+
 
   // Populating Data Set - Summer Corn (*NO IF ON SEASON)
   useEffect(() => {
