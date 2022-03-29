@@ -2,7 +2,6 @@ import MaterialTable from "material-table";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import { Button, Checkbox, Select, MenuItem } from "@material-ui/core";
 import DataSet from "../../data/data.json"
-import { makeStyles } from "@material-ui/styles";
 
 import { useLayoutEffect, useEffect, useState } from "react";
 import { Container } from "./styles";
@@ -263,15 +262,6 @@ export function TransactionTable() {
     setChartDataSoghumSudan(formattedChartDataCorn);
   }, [filteredData]);
 
-  const useStyles = makeStyles({
-    colHeader: {
-      color: "red",
-      "&:hover": {
-        color: "blue"
-      }
-    }
-  });
-
 
   // const TableCellStyle = { borderRight: "1px solid #e5e5e5" };
   const BoldCellStyle = { fontWeight: 600 };
@@ -437,7 +427,7 @@ export function TransactionTable() {
                       padding: "1rem",
                       textAlign: "center",
                       color: "white",
-                      backgroundColor: "#2c8558",
+                      backgroundColor: "#0021A5",
                     }}
                   >
                     <p>Relative Maturity: {rowData.relativeMaturity}</p>
