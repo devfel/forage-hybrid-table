@@ -411,7 +411,7 @@ export function TransactionTable() {
             padding: "dense",
             tableLayout: "auto",
             headerStyle: {
-              backgroundColor: "#0021A5",
+              backgroundColor: "#FA4616",
               color: "#fefefe",
             },
             rowStyle: (data, index, teste) => index % 2 == 0 ? {
