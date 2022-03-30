@@ -38,9 +38,16 @@
 - [X] Remove Original Filters and change the logic so it start without showing original filters. 2h
 - [X] Remove button to show/hide Original Filters. 1h
 
+- [X] Prepare and Present Software to Ashley. Ask about Interface, Pictures, Logo, Colors, Branding. 1h
+
+- [X] Change the Color of the Title Bar to Orange (tryed) Blue didnt like it. 0.5h
+- [X] Change the Color of the Title Bar Font to White, while not selected. 0.5h
+- [X] Change the Color of the Header Background to UF's Blue. 0.5h
+- [X] Change the Color of the Secondary background stats to UF's Blue. 1h
+
+
 - [ ] Make Last Year avaible as default on the Search.
 
-- [ ] Present Software to Ashley. Ask about Interface, Pictures, Logo, Colors, Branding. 
 - [ ] Create Custom Filter for Species.
 - [ ] Do the Custom Search Bar for Hybrid Names. 
 - [ ] Change which columns will be shown as primary and as secondary.
@@ -57,7 +64,6 @@
 - [ ] Change the Header Logo.
 - [ ] Change Header Background image.
 - [ ] Change the Header Software Title/Name. 
-- [ ] Change the Color of the Title Bar to Blue and Font to White.
 - [ ] Change the Title from "Corn and Sorghum Silage Hybrid Trial” to “UF Silage Hybrid Trial”
 - [ ] Add How to use the system button/link.
 - [ ] Add contact info at the bottom (Contact us at forages@ifas.ufl.edu)
