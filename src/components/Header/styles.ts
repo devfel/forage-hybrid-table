@@ -19,12 +19,13 @@ export const Content = styled.div`
   background-image: url(${img2});
 
   img {
-    opacity: 0.9;
+    opacity: 0.95;
     width: 160px;
     height: auto;
     margin-left: 1rem;
     margin-right: 1rem;
     border-radius: 0.4rem;
+    background-color: #fefefe;
 
     transition: filter 0.4s;
     &:hover {
@@ -37,8 +38,8 @@ export const Content = styled.div`
     margin-right: 1rem;
     font-size: 1.5rem;
     font-weight: 600;
-    background-color: #fff;
-    opacity: 0.94;
+    background-color: #fefefe;
+    opacity: 0.9;
 
     border: 0;
     padding: 1rem 2rem;

@@ -44,7 +44,13 @@
 - [X] Change the Color of the Title Bar Font to White, while not selected. 0.5h
 - [X] Change the Color of the Header Background to UF's Blue. 0.5h
 - [X] Change the Color of the Secondary background stats to UF's Blue. 1h
+- [X] Change the Header Logo. 1h
+- [X] Change Header Background image. 1h
+- [X] Change the Header Software Title/Name. 0.5h 
+- [X] Change the Title from "Corn and Sorghum Silage Hybrid Trial” to “UF Silage Hybrid Trial” 0.5h
 
+
+- [X] Look for other Tools and Spreadshets for interface ideas and Name ideas. 2h
 
 - [ ] Make Last Year avaible as default on the Search.
 
@@ -61,10 +67,7 @@
 - [ ] With all the correct data, certify chart will work for higher and smallers values predefined on the chart MAX MIN.
 
 - Changes to be made after Meeting with Ashley.
-- [ ] Change the Header Logo.
-- [ ] Change Header Background image.
-- [ ] Change the Header Software Title/Name. 
-- [ ] Change the Title from "Corn and Sorghum Silage Hybrid Trial” to “UF Silage Hybrid Trial”
+
 - [ ] Add How to use the system button/link.
 - [ ] Add contact info at the bottom (Contact us at forages@ifas.ufl.edu)
 
@@ -77,10 +80,18 @@
 - [ ] Create Back-end to send xls-file to the server.
 
 
-### Other Table Examples
+### Other Table and Tools Examples
 
 - https://search.utcrops.com/corn-silage/table-2-a-across-locations-yield-and-agronomic-traits
 - https://search.utcrops.com/corn-grain/table-16-corn-hybrid-characteristics
+- http://forages.org/index.php/tools2/36-forage-species-selector-cat (Forage Species Selector)
+- http://forages.org/index.php/tools-grassman (Grass Management Tools - Excel Spreadsheets)
+- https://varietytrials.msu.edu/wp-content/uploads/2020/12/2020-MSU-Corn-Bulletin-E31.pdf (2020 Michigan Corn Hybrids Compared)
+- https://www.canr.msu.edu/resources/corn-picker-for-silage (Corn Picker for Silage)
+- https://www.rea-hybrids.com/en-us/products/corn.html (Corn - Rea Hybrids)
+- https://cals.cornell.edu/field-crops/about/resources/web-based-tools (Variety of Tools)
+- http://corn.agronomy.wisc.edu/Season/DSS.aspx (Corn Agronomy - Decision Support Systems)
+- https://www.whminer.org/dairy (Dairy Management Tools) & Small Article: https://www.progressivedairy.com/topics/feed-nutrition/the-next-step-in-corn-silage-hybrid-evaluation-fiber-and-starch-yields
 
 ### Other Information
 - Show Grouping Option to Professor.

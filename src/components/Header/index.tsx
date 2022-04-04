@@ -1,4 +1,4 @@
-import logoImg from "../../assets/logo-uf-ifas.jpg";
+import logoImg from "../../assets/logo-uf-ifas.png";
 import { Container, Content } from "./styles";
 
 export function Header() {
@@ -10,7 +10,7 @@ export function Header() {
         </a>
         <button type="button">
           <a href="https://animal.ifas.ufl.edu/extension/courses/csfd/" target="_blank" rel="noopener noreferrer">
-            Corn Silage and Forage Field Day
+            UF Silage Hybrid Decision Tool
           </a>
         </button>
       </Content>

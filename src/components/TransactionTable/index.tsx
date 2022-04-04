@@ -449,10 +449,10 @@ export function TransactionTable() {
               },
             },
           ]}
-          title="Corn and Sorghum Silage Hybrid Trial"
+          title="UF Silage Hybrid Trial Table"
         />
         <div className="footer">
-          <span>*All the information were gathered from the University of Florida website.</span>
+          <span>*All the information were gathered from the University of Florida Corn Silage and Forage Field Day WebSite.</span>
           <span>
             Visit{" "}
             <a href="https://animal.ifas.ufl.edu/extension/courses/csfd/" target="_blank" rel="noopener noreferrer">
@@ -461,6 +461,7 @@ export function TransactionTable() {
             </a>{" "}
             for more details.
           </span>
+          <span>Contact us at <a href="mailto: forages@ifas.ufl.edu">forages@ifas.ufl.edu</a>.</span>
         </div>
       </Container>
     );
@@ -474,7 +475,7 @@ export function TransactionTable() {
           Chart
         </Button>
 
-        <div className="chart-title">Corn and Sorghum Silage Hybrid Trial</div>
+        <div className="chart-title">UF Silage Hybrid Trial Chart</div>
         <div className="chart-sub-title">Total DM Production (lb DM/ton) X Milk Production (lb milk/ton) </div>
 
         <ScatterChart className="chart-container" width={chartWidth} height={chartHeight} margin={{ top: 20, right: 30, bottom: 10, left: 0 }}>
