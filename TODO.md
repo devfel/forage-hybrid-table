@@ -49,8 +49,9 @@
 - [X] Change the Header Software Title/Name. 0.5h 
 - [X] Change the Title from "Corn and Sorghum Silage Hybrid Trial” to “UF Silage Hybrid Trial” 0.5h
 
-
 - [X] Look for other Tools and Spreadshets for interface ideas and Name ideas. 2h
+- [X] Add contact info at the bottom (Contact us at forages@ifas.ufl.edu) 0.5
+
 
 - [ ] Make Last Year avaible as default on the Search.
 
@@ -65,12 +66,11 @@
 - [ ] Refactor software so Filters are shown in both pages as a component.
 - [ ] Refactor source code as components to be easier to maintain and update.
 - [ ] With all the correct data, certify chart will work for higher and smallers values predefined on the chart MAX MIN.
+- [ ] Test and Make Sure all the Needed FaveIcons are Working
 
 - Changes to be made after Meeting with Ashley.
 
 - [ ] Add How to use the system button/link.
-- [ ] Add contact info at the bottom (Contact us at forages@ifas.ufl.edu)
-
 
 
 - [Not] Change the Order of Filter Lookup for Year (Default Year), so that the most recent year appear first when the user open fiters to select. (Maybe Wont Be necessary if Default Filters are Removed)
