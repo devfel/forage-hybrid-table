@@ -51,7 +51,7 @@
 
 - [X] Look for other Tools and Spreadshets for interface ideas and Name ideas. 2h
 - [X] Add contact info at the bottom (Contact us at forages@ifas.ufl.edu) 0.5
-
+- [X] Release New Version online with npm run deploy. 0.5h
 
 - [ ] Make Last Year avaible as default on the Search.
 
