@@ -327,6 +327,8 @@ export function TransactionTable() {
           <FormControlLabel style={{ fontSize: "20rem" }} control={<Checkbox checked={filter} onChange={handleChangeFilter} color="default" />} label="Hide/Show Filters" />
         </div>
         */}
+
+        {/* CUSTOM FILTERS BEGIN - TABLE PAGE */}
         <div className="show-filter-select-box">
           <p style={{ fontSize: "1rem" }}> <b>Available Filters</b> </p>
         </div>
@@ -384,7 +386,7 @@ export function TransactionTable() {
             </Select>
           </div>
         </div>
-
+        {/* CUSTOM FILTERS ENDS - TABLE PAGE */}
 
 
         <MaterialTable
@@ -474,6 +476,57 @@ export function TransactionTable() {
         <Button onClick={handleClickChart} variant="contained" className="selected">
           Chart
         </Button>
+
+        {/* CUSTOM FILTERS BEGIN - CHART PAGE */}
+        <div className="show-filter-select-box">
+          <p style={{ fontSize: "1rem" }}> <b>Available Filters</b> </p>
+        </div>
+
+        <div className="custom-filters">
+          <div className="custom-company-filter custom-filter-item">
+            <p>Filter by Company:</p>
+            <Select className="select-filter"
+              labelId="filter-company-label"
+              id="filter-company-id"
+              value={companyFilter}
+              label="Company"
+              onChange={(e) => setCompanyFilter(e.target.value as any)}
+            >
+              <MenuItem value={"all"}><em>All</em></MenuItem>
+              {allCompaniesSingle.map(el => <MenuItem value={el}>{el}</MenuItem>)}
+            </Select>
+          </div>
+
+
+          <div className="custom-year-filter custom-filter-item">
+            <p>Filter by Year:</p>
+            <Select className="select-filter"
+              labelId="filter-year-label"
+              id="filter-year-id"
+              value={yearFilter}
+              label="Year"
+              onChange={(e) => setYearFilter(e.target.value as any)}
+            >
+              <MenuItem value={"all"}><em>All</em></MenuItem>
+              {allYearsSingle.map(el => <MenuItem value={el}>{el}</MenuItem>)}
+            </Select>
+          </div>
+
+          <div className="custom-season-filter custom-filter-item">
+            <p>Filter by Season:</p>
+            <Select className="select-filter"
+              labelId="filter-season-label"
+              id="filter-season-id"
+              value={seasonFilter}
+              label="Season"
+              onChange={(e) => setSeasonFilter(e.target.value as any)}
+            >
+              <MenuItem value={"all"}><em>All</em></MenuItem>
+              {allSeasonsSingle.map(el => <MenuItem value={el}>{el}</MenuItem>)}
+            </Select>
+          </div>
+        </div>
+        {/* CUSTOM FILTERS ENDS - CHART PAGE */}
 
         <div className="chart-title">UF Silage Hybrid Trial Chart</div>
         <div className="chart-sub-title">Total DM Production (lb DM/ton) X Milk Production (lb milk/ton) </div>

@@ -53,6 +53,9 @@
 - [X] Add contact info at the bottom (Contact us at forages@ifas.ufl.edu) 0.5
 - [X] Release New Version online with npm run deploy. 0.5h
 
+- [X] Add Filters selected and not selected (with the state they are in) to the Chart Page. 4h
+- [X] Change the Font on Title of the Chart Page to match the Font on the Table Page Title. 1h
+
 - [ ] Make Last Year avaible as default on the Search.
 
 - [ ] Create Custom Filter for Species.

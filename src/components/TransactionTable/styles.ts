@@ -80,9 +80,12 @@ export const Container = styled.div`
   }
 
   .chart-title {
-    margin-top: 2rem;
-    font-weight: 600;
     text-align: center;
+    font-size: 1.25rem;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 500;
+    line-height: 1.6;
+    letter-spacing: 0.0075em;
   }
 
   .chart-sub-title {
