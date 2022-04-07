@@ -7,6 +7,7 @@ import { useLayoutEffect, useEffect, useState } from "react";
 import { Container } from "./styles";
 import { ScatterChart, CartesianGrid, XAxis, YAxis, ZAxis, Tooltip, Legend, Scatter } from "recharts";
 import { Console } from "console";
+import { Footer } from "../Footer";
 
 interface dataProps {
   company: string;
@@ -453,18 +454,7 @@ export function TransactionTable() {
           ]}
           title="UF Silage Hybrid Trial Table"
         />
-        <div className="footer">
-          <span>*All the information were gathered from the University of Florida Corn Silage and Forage Field Day WebSite.</span>
-          <span>
-            Visit{" "}
-            <a href="https://animal.ifas.ufl.edu/extension/courses/csfd/" target="_blank" rel="noopener noreferrer">
-              {" "}
-              https://animal.ifas.ufl.edu/extension/courses/csfd/{" "}
-            </a>{" "}
-            for more details.
-          </span>
-          <span>Contact us at <a href="mailto: forages@ifas.ufl.edu">forages@ifas.ufl.edu</a>.</span>
-        </div>
+        <Footer />
       </Container>
     );
   } else {
@@ -545,18 +535,7 @@ export function TransactionTable() {
           <Scatter name="Summer Soghum Sudan" data={chartDataSoghumSudan} fill="#008f28" />
         </ScatterChart>
 
-        <div className="footer">
-          <span>*All the information were gathered from the University of Florida Corn Silage and Forage Field Day WebSite.</span>
-          <span>
-            Visit{" "}
-            <a href="https://animal.ifas.ufl.edu/extension/courses/csfd/" target="_blank" rel="noopener noreferrer">
-              {" "}
-              https://animal.ifas.ufl.edu/extension/courses/csfd/{" "}
-            </a>{" "}
-            for more details.
-          </span>
-          <span>Contact us at <a href="mailto: forages@ifas.ufl.edu">forages@ifas.ufl.edu</a>.</span>
-        </div>
+        <Footer />
       </Container>
     );
   }
