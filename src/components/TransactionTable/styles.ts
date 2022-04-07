@@ -56,15 +56,6 @@ export const Container = styled.div`
     }
   }
 
-
-{/*
-  .footer {
-    display: grid;
-    grid-template-columns: 1fr;
-    margin: 1rem;
-  }
-*/}
-
   button {
     margin: 0.5rem;
     font-weight: 600;

@@ -56,6 +56,7 @@
 - [X] Add Filters selected and not selected (with the state they are in) to the Chart Page. 4h
 - [X] Change the Font on Title of the Chart Page to match the Font on the Table Page Title. 1h
 - [X] Change the footer information on the chart page to match the table page. 0.5h
+- [X] Refactor Footer Code to be a Component and not Coded Twice the same way. 3h
 
 - [ ] Make Last Year avaible as default on the Search.
 
