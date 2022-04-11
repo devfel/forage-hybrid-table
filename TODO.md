@@ -77,6 +77,14 @@
 
 - [ ] Add How to use the system button/link.
 
+--- TODO after meeting with Wallau ---
+- [ ] Change data, to work with the new correct data. 
+- [ ] Correct the main characteristics to be: year, company, hybrid, season, yield, milksilage, milkacre, ndf, ndfd, starch.
+- [ ] Try to make starch for Corn Only.
+- [ ] Change the colors of the Top Ones. (Legend: Top performer within season within year).
+- [ ] Species Filter must start with one of them and not have the all option. 
+- [ ] Create a NOTE saying that the top characteristics are for each specific year. 
+
 
 - [Not] Change the Order of Filter Lookup for Year (Default Year), so that the most recent year appear first when the user open fiters to select. (Maybe Wont Be necessary if Default Filters are Removed)
 
