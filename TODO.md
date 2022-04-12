@@ -69,7 +69,7 @@
 - [ ] Change the Tooltip on Chart to show Company, Hybrid and Values.
 - [ ] Add Other Data from SpreedSheet.
 - [ ] Refactor software so Filters are shown in both pages as a component.
-- [ ] Refactor source code as components to be easier to maintain and update.
+- [ ] Refactor sourccde code as components to be easier to maintain and update.
 - [ ] With all the correct data, certify chart will work for higher and smallers values predefined on the chart MAX MIN.
 - [ ] Test and Make Sure all the Needed FaveIcons are Working
 
@@ -79,6 +79,7 @@
 
 --- TODO after meeting with Wallau ---
 - [ ] Change data, to work with the new correct data. 
+- [ ] Add website Statistics.
 - [ ] Correct the main characteristics to be: year, company, hybrid, season, yield, milksilage, milkacre, ndf, ndfd, starch.
 - [ ] Try to make starch for Corn Only.
 - [ ] Change the colors of the Top Ones. (Legend: Top performer within season within year).
