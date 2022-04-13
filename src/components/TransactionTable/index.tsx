@@ -10,29 +10,35 @@ import { Console } from "console";
 import { Footer } from "../Footer";
 
 interface dataProps {
+  year: number;
+  species: string;
   company: string;
   hybrid: string;
-  relativeMaturity: number | string;
-  totalProduction: number | string;
-  estimatedSilage: number | string;
-  milkPerTon: number | string;
-  milkPerAcre: number | string;
-  diseaseScore: number | string;
-  lodgingScore: number | string;
-  dmAtHarvest: string;
-  nel: number | string;
-  tdn: number | string;
-  cp: number | string;
-  ivtdmd30: number | string;
-  starch: number | string;
-  wsc: number | string;
-  adf: number | string;
-  aNdf: number | string;
-  dNdf3: number | string;
-  nDfd30Percentage: number | string;
-  year: number;
   season: string;
-  type: string;
+  relativeMaturity: number | string | null;
+  topyield: number | string | null;
+  yield: number | string | null;
+  at35dm: number | string | null;
+  topmilksilage: number | string | null;
+  milksilage: number | string | null;
+  topmilkacre: number | string | null;
+  milkacre: number | string | null;
+  drymatter: number | string | null;
+  crudeprotein: number | string | null;
+  ndf: number | string | null;
+  ndfd: number | string | null;
+  at240undf: number | string | null;
+  adf: number | string | null;
+  starch: number | string | null;
+  sugar: number | string | null;
+  nel: number | string | null;
+  IVDMD: number | string | null;
+  tdn: number | string | null;
+  yielddigestiblendf: number | string | null;
+  diseasedonotuse: number | string | null;
+  disease: number | string | null;
+  donotuselodging: number | string | null;
+  lodging: number | string | null;
 }
 
 interface chartDataProps {
@@ -112,7 +118,7 @@ export function TransactionTable() {
 
   // Populating Data Set
   useEffect(() => {
-    fetch("https://raw.githubusercontent.com/devfel/forage-hybrid-table/master/src/data/data.json")
+    fetch("https://raw.githubusercontent.com/devfel/forage-hybrid-table/master/src/data/data2021.json")
       .then((resp) => resp.json())
       .then((resp) => {
         const formattedData = resp.map((el: dataProps) => {
@@ -120,26 +126,26 @@ export function TransactionTable() {
             company: el.company,
             hybrid: el.hybrid,
             relativeMaturity: !isNaN(Number(el.relativeMaturity)) ? Number(el.relativeMaturity) : "-",
-            totalProduction: Number(el.totalProduction),
-            estimatedSilage: !isNaN(Number(el.estimatedSilage)) ? Number(el.estimatedSilage) : "-",
-            milkPerTon: !isNaN(Number(el.milkPerTon)) ? Number(el.milkPerTon) : "-",
-            milkPerAcre: !isNaN(Number(el.milkPerAcre)) ? Number(el.milkPerAcre) : "-",
-            diseaseScore: !isNaN(Number(el.diseaseScore)) ? Number(el.diseaseScore) : "-",
-            lodgingScore: !isNaN(Number(el.lodgingScore)) ? Number(el.lodgingScore) : "-",
-            dmAtHarvest: el.dmAtHarvest,
+            totalProduction: !isNaN(Number(el.yield)) ? Number(el.yield) : "-",
+            estimatedSilage: !isNaN(Number(el.drymatter)) ? Number(el.drymatter) : "-",
+            milkPerTon: !isNaN(Number(el.milksilage)) ? Number(el.milksilage) : "-",
+            milkPerAcre: !isNaN(Number(el.milkacre)) ? Number(el.milkacre) : "-",
+            diseaseScore: !isNaN(Number(el.disease)) ? Number(el.disease) : "-",
+            lodgingScore: !isNaN(Number(el.lodging)) ? Number(el.lodging) : "-",
+            dmAtHarvest: !isNaN(Number(el.drymatter)) ? Number(el.drymatter) : "-",
             nel: !isNaN(Number(el.nel)) ? Number(el.nel) : "-",
             tdn: !isNaN(Number(el.tdn)) ? Number(el.tdn) : "-",
-            cp: !isNaN(Number(el.cp)) ? Number(el.cp) : "-",
-            ivtdmd30: !isNaN(Number(el.ivtdmd30)) ? Number(el.ivtdmd30) : "-",
+            cp: !isNaN(Number(el.nel)) ? Number(el.nel) : "-",
+            ivtdmd30: !isNaN(Number(el.IVDMD)) ? Number(el.IVDMD) : "-",
             starch: !isNaN(Number(el.starch)) ? Number(el.starch) : "-",
-            wsc: !isNaN(Number(el.wsc)) ? Number(el.wsc) : "-",
+            wsc: !isNaN(Number(el.tdn)) ? Number(el.tdn) : "-",
             adf: !isNaN(Number(el.adf)) ? Number(el.adf) : "-",
-            aNdf: !isNaN(Number(el.aNdf)) ? Number(el.aNdf) : "-",
-            dNdf3: !isNaN(Number(el.dNdf3)) ? Number(el.dNdf3) : "-",
-            nDfd30Percentage: !isNaN(Number(el.nDfd30Percentage)) ? Number(el.nDfd30Percentage) : "-",
+            aNdf: !isNaN(Number(el.ndfd)) ? Number(el.ndfd) : "-",
+            // TODO - UPDATE PRIMARY AND SECODONDARY DATA HERE, exemple old: dNdf3: !isNaN(Number(el.dNdf3)) ? Number(el.dNdf3) : "-",
+            nDfd30Percentage: !isNaN(Number(el.ndfd)) ? Number(el.ndfd) : "-",
             year: !isNaN(Number(el.year)) ? Number(el.year) : 0,
             season: el.season,
-            type: el.type,
+            type: el.species,
           };
         });
 
@@ -150,119 +156,119 @@ export function TransactionTable() {
   }, []);
 
 
-
-  // Populating Data Set - Summer Corn (*NO IF ON SEASON)
-  useEffect(() => {
-    const formattedChartDataCorn = filteredData.map((el: chartDataProps) => {
-      if (el.type === "Corn") {
-        return {
-          company: el.company,
-          hybrid: el.hybrid,
-          totalProduction: el.totalProduction,
-          milkPerTon: el.milkPerTon,
-          year: el.year,
-          season: el.season,
-          type: el.type,
-        };
-      } else
-        return {
-          company: "-",
-          hybrid: "-",
-          totalProduction: "-",
-          milkPerTon: "-",
-          year: 0,
-          season: "-",
-          type: "-",
-        };
-    });
-
-    setChartDataCorn(formattedChartDataCorn);
-  }, [filteredData]);
-
-  // Populating Data Set - Spring Corn Silage (*NO IF ON SEASON)
-  useEffect(() => {
-    const formattedChartDataCorn = filteredData.map((el: chartDataProps) => {
-      if (el.type === "Corn Silage") {
-        return {
-          company: el.company,
-          hybrid: el.hybrid,
-          totalProduction: el.totalProduction,
-          milkPerTon: el.milkPerTon,
-          year: el.year,
-          season: el.season,
-          type: el.type,
-        };
-      } else
-        return {
-          company: "-",
-          hybrid: "-",
-          totalProduction: "-",
-          milkPerTon: "-",
-          year: 0,
-          season: "-",
-          type: "-",
-        };
-    });
-
-    setChartDataCornSilage(formattedChartDataCorn);
-  }, [filteredData]);
-
-  // Populating Data Set - Summer Forage Soghum (*NO IF ON SEASON)
-  useEffect(() => {
-    const formattedChartDataCorn = filteredData.map((el: chartDataProps) => {
-      if (el.type === "Forage Soghum") {
-        return {
-          company: el.company,
-          hybrid: el.hybrid,
-          totalProduction: el.totalProduction,
-          milkPerTon: el.milkPerTon,
-          year: el.year,
-          season: el.season,
-          type: el.type,
-        };
-      } else
-        return {
-          company: "-",
-          hybrid: "-",
-          totalProduction: "-",
-          milkPerTon: "-",
-          year: 0,
-          season: "-",
-          type: "-",
-        };
-    });
-
-    setChartDataForageSoghum(formattedChartDataCorn);
-  }, [filteredData]);
-
-  // Populating Data Set - Summer Soghum Sudan (*NO IF ON SEASON)
-  useEffect(() => {
-    const formattedChartDataCorn = filteredData.map((el: chartDataProps) => {
-      if (el.type === "Soghum Sudan") {
-        return {
-          company: el.company,
-          hybrid: el.hybrid,
-          totalProduction: el.totalProduction,
-          milkPerTon: el.milkPerTon,
-          year: el.year,
-          season: el.season,
-          type: el.type,
-        };
-      } else
-        return {
-          company: "-",
-          hybrid: "-",
-          totalProduction: "-",
-          milkPerTon: "-",
-          year: 0,
-          season: "-",
-          type: "-",
-        };
-    });
-
-    setChartDataSoghumSudan(formattedChartDataCorn);
-  }, [filteredData]);
-
+  /* TODO - Fix Chart
+    // Populating Data Set - Summer Corn (*NO IF ON SEASON)
+    useEffect(() => {
+      const formattedChartDataCorn = filteredData.map((el: chartDataProps) => {
+        if (el.type === "Corn") {
+          return {
+            company: el.company,
+            hybrid: el.hybrid,
+            totalProduction: el.totalProduction,
+            milkPerTon: el.milkPerTon,
+            year: el.year,
+            season: el.season,
+            type: el.type,
+          };
+        } else
+          return {
+            company: "-",
+            hybrid: "-",
+            totalProduction: "-",
+            milkPerTon: "-",
+            year: 0,
+            season: "-",
+            type: "-",
+          };
+      });
+  
+      setChartDataCorn(formattedChartDataCorn);
+    }, [filteredData]);
+  
+    // Populating Data Set - Spring Corn Silage (*NO IF ON SEASON)
+    useEffect(() => {
+      const formattedChartDataCorn = filteredData.map((el: chartDataProps) => {
+        if (el.type === "Corn Silage") {
+          return {
+            company: el.company,
+            hybrid: el.hybrid,
+            totalProduction: el.totalProduction,
+            milkPerTon: el.milkPerTon,
+            year: el.year,
+            season: el.season,
+            type: el.type,
+          };
+        } else
+          return {
+            company: "-",
+            hybrid: "-",
+            totalProduction: "-",
+            milkPerTon: "-",
+            year: 0,
+            season: "-",
+            type: "-",
+          };
+      });
+  
+      setChartDataCornSilage(formattedChartDataCorn);
+    }, [filteredData]);
+  
+    // Populating Data Set - Summer Forage Soghum (*NO IF ON SEASON)
+    useEffect(() => {
+      const formattedChartDataCorn = filteredData.map((el: chartDataProps) => {
+        if (el.type === "Forage Soghum") {
+          return {
+            company: el.company,
+            hybrid: el.hybrid,
+            totalProduction: el.totalProduction,
+            milkPerTon: el.milkPerTon,
+            year: el.year,
+            season: el.season,
+            type: el.type,
+          };
+        } else
+          return {
+            company: "-",
+            hybrid: "-",
+            totalProduction: "-",
+            milkPerTon: "-",
+            year: 0,
+            season: "-",
+            type: "-",
+          };
+      });
+  
+      setChartDataForageSoghum(formattedChartDataCorn);
+    }, [filteredData]);
+  
+    // Populating Data Set - Summer Soghum Sudan (*NO IF ON SEASON)
+    useEffect(() => {
+      const formattedChartDataCorn = filteredData.map((el: chartDataProps) => {
+        if (el.type === "Soghum Sudan") {
+          return {
+            company: el.company,
+            hybrid: el.hybrid,
+            totalProduction: el.totalProduction,
+            milkPerTon: el.milkPerTon,
+            year: el.year,
+            season: el.season,
+            type: el.type,
+          };
+        } else
+          return {
+            company: "-",
+            hybrid: "-",
+            totalProduction: "-",
+            milkPerTon: "-",
+            year: 0,
+            season: "-",
+            type: "-",
+          };
+      });
+  
+      setChartDataSoghumSudan(formattedChartDataCorn);
+    }, [filteredData]);
+  */
 
   // const TableCellStyle = { borderRight: "1px solid #e5e5e5" };
   const BoldCellStyle = { fontWeight: 600 };
@@ -434,19 +440,19 @@ export function TransactionTable() {
                     }}
                   >
                     <p>Relative Maturity: {rowData.relativeMaturity}</p>
-                    <p>Estimated Silage (Ton/A): {rowData.estimatedSilage}</p>
-                    <p>Lodging Score: {rowData.lodgingScore}</p>
-                    <p>DM% at Harvest : {rowData.dmAtHarvest}</p>
+                    <p>Estimated Silage (Ton/A): {rowData.drymatter}</p>
+                    <p>Lodging Score: {rowData.lodging}</p>
+                    <p>DM% at Harvest : {rowData.yield}</p>
                     <p>NEl: {rowData.nel} </p>
                     <p>TDN: {rowData.tdn} </p>
-                    <p>CP: {rowData.cp} </p>
-                    <p>IVTDMD30: {rowData.ivtdmd30} </p>
+                    <p>CP: {rowData.crudeprotein} </p>
+                    <p>IVTDMD30: {rowData.IVDMD} </p>
                     <p>Starch: {rowData.starch} </p>
-                    <p>WSC: {rowData.wsc} </p>
+                    <p>WSC: {rowData.tdn} </p>
                     <p>ADF: {rowData.adf} </p>
-                    <p>aNDF: {rowData.aNdf} </p>
-                    <p>dNDF30: {rowData.dNdf3} </p>
-                    <p>NDFD30 (%NDF): {rowData.nDfd30Percentage} </p>
+                    <p>aNDF: {rowData.nel} </p>
+                    <p>dNDF30: {rowData.at240undf} </p>
+                    <p>NDFD30 (%NDF): {rowData.at35dm} </p>
                   </div>
                 );
               },
