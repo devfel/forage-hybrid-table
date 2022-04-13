@@ -15,7 +15,7 @@ interface dataProps {
   company: string;
   hybrid: string;
   season: string;
-  relativeMaturity: number | string | null;
+  relativematurity: number | string | null;
   topyield: number | string | null;
   yield: number | string | null;
   at35dm: number | string | null;
@@ -123,6 +123,8 @@ export function TransactionTable() {
       .then((resp) => {
         const formattedData = resp.map((el: dataProps) => {
           return {
+            /* // TODO FIX ALL DATA TO BE LOADED BY THE SOFTWARE
+            
             company: el.company,
             hybrid: el.hybrid,
             relativeMaturity: !isNaN(Number(el.relativeMaturity)) ? Number(el.relativeMaturity) : "-",
@@ -145,7 +147,37 @@ export function TransactionTable() {
             nDfd30Percentage: !isNaN(Number(el.ndfd)) ? Number(el.ndfd) : "-",
             year: !isNaN(Number(el.year)) ? Number(el.year) : 0,
             season: el.season,
-            type: el.species,
+            type: el.species, 
+            */
+            year: el.year,
+            species: el.species,
+            company: el.company,
+            hybrid: el.hybrid,
+            season: el.season,
+            relativematurity: (el.relativematurity === null || el.relativematurity === "") ? -1 : Number(el.relativematurity),
+            topyield: el.topyield,
+            yield: (el.yield === null || el.yield === "") ? -1 : Number(el.yield), //TODO: Change this to affect all values, they can be ordered, they are numbers not strings. 
+            at35dm: (el.at35dm === null || el.at35dm === "") ? -1 : Number(el.at35dm), //TODO: UNDEFINED ELEMENT. 
+            topmilksilage: el.topmilksilage,
+            milksilage: (el.milksilage === null || el.milksilage === "") ? -1 : Number(el.milksilage),
+            topmilkacre: el.topmilkacre,
+            milkacre: (el.milkacre === null || el.milkacre === "") ? -1 : Number(el.milkacre), //TODO: Change this to affect all values, they can be ordered, they are numbers not strings. 
+            drymatter: (el.drymatter === null || el.drymatter === "") ? -1 : Number(el.drymatter),
+            crudeprotein: (el.crudeprotein === null || el.crudeprotein === "") ? -1 : Number(el.crudeprotein),
+            ndf: (el.ndf === null || el.ndf === "") ? -1 : Number(el.ndf),
+            ndfd: (el.ndfd === null || el.ndfd === "") ? -1 : Number(el.ndfd),
+            at240undf: (el.at240undf === null || el.at240undf === "") ? -1 : Number(el.at240undf),
+            adf: (el.adf === null || el.adf === "") ? -1 : Number(el.adf),
+            starch: (el.starch === null || el.starch === "") ? -1 : Number(el.starch),
+            sugar: (el.sugar === null || el.sugar === "") ? -1 : Number(el.sugar),
+            nel: (el.nel === null || el.nel === "") ? -1 : Number(el.nel),
+            IVDMD: (el.IVDMD === null || el.IVDMD === "") ? -1 : Number(el.IVDMD), //TODO: Change this to affect all values, they can be ordered, they are numbers not strings. 
+            tdn: (el.tdn === null || el.tdn === "") ? -1 : Number(el.tdn),
+            yielddigestiblendf: (el.yielddigestiblendf === null || el.yielddigestiblendf === "") ? -1 : Number(el.yielddigestiblendf),
+            diseasedonotuse: (el.diseasedonotuse === null || el.diseasedonotuse === "") ? -1 : Number(el.diseasedonotuse),
+            disease: (el.disease === null || el.disease === "") ? -1 : Number(el.disease),
+            donotuselodging: (el.donotuselodging === null || el.donotuselodging === "") ? -1 : Number(el.donotuselodging),
+            lodging: (el.lodging === null || el.lodging === "") ? -1 : Number(el.lodging),
           };
         });
 
@@ -268,27 +300,34 @@ export function TransactionTable() {
   
       setChartDataSoghumSudan(formattedChartDataCorn);
     }, [filteredData]);
-  */
+  END OF CHART DATA POPULATING */
 
   // const TableCellStyle = { borderRight: "1px solid #e5e5e5" };
   const BoldCellStyle = { fontWeight: 600 };
-  const yearsLookup = {
-    2020: "2020",
-    2019: "2019",
-    2018: "2018",
-    2017: "2017",
-  };
 
-  const speciesLookup = {
-    "Corn Silage": "Corn Silage",
-    Corn: "Corn",
-    "Soghum Sudan": "Soghum Sudan",
-    "Forage Soghum": "Forage Soghum",
-  };
-
-  const seasonLookup = { Spring: "Spring", Summer: "Summer" };
+  // --- LOOKUPS USED WITH THE OLD FILTERING SYSTEM ---
+  // const yearsLookup = {
+  //   2020: "2020",
+  //   2019: "2019",
+  //   2018: "2018",
+  //   2017: "2017",
+  // };
+  // const speciesLookup = {
+  //   "Corn Silage": "Corn Silage",
+  //   Corn: "Corn",
+  //   "Soghum Sudan": "Soghum Sudan",
+  //   "Forage Soghum": "Forage Soghum",
+  // };
+  // const seasonLookup = { 
+  //   Spring: "Spring", 
+  //   Summer: "Summer" 
+  // };
+  // //{title: "Year", field: "year", lookup: yearsLookup, filterPlaceholder: "Select" },
+  // --- ---
 
   const columns = [
+    //TODO FIX HERE THE MAIN COLUMNS THAT WILL APPEAR. 
+    /* OLD MAIN COLUMNS
     { title: "Company", field: "company", cellStyle: BoldCellStyle, filterPlaceholder: "Search" },
     { title: "Hybrid", field: "hybrid", cellStyle: BoldCellStyle, filterPlaceholder: "Search" },
     { title: "Total Production (lb DM/A)", field: "totalProduction", filtering: false, defaultSort: "desc" },
@@ -296,9 +335,39 @@ export function TransactionTable() {
     { title: "Milk Production per ton (lb milk/ton)", field: "milkPerTon", filtering: false },
     { title: "Milk production per acre (lb milk/A)", field: "milkPerAcre", filtering: false },
     { title: "Disease score", field: "diseaseScore", filtering: false },
-    { title: "Year", field: "year", lookup: yearsLookup, filterPlaceholder: "Select" },
-    { title: "Season", field: "season", lookup: seasonLookup, filterPlaceholder: "Select" },
-    { title: "Species", field: "type", lookup: speciesLookup, filterPlaceholder: "Select" },
+    { title: "Year", field: "year" },
+    { title: "Season", field: "season" },
+    { title: "Species", field: "type" },*/
+
+    { title: "Year", field: "year" },
+    { title: "Species", field: "species" },
+    { title: "Company", field: "company" },
+    { title: "Hybrid", field: "hybrid" },
+    { title: "Season", field: "season" },
+    { title: "Relative Maturity", field: "relativematurity" },
+    { title: "Top Yield", field: "topyield" },
+    { title: "Yield Dry Tons/acre", field: "yield", defaultSort: "desc" },
+    { title: "35% DM T/A", field: "at35dm" },
+    { title: "Top Milk lb/Ton of silage", field: "topmilksilage" },
+    { title: "Milk lb/Ton of silage", field: "milksilage" },
+    { title: "Top Milk lb/acre", field: "topmilkacre" },
+    { title: "Milk lb/acre", field: "milkacre" },
+    { title: "Dry matter %", field: "drymatter" },
+    { title: "Crude protein %", field: "crudeprotein" },
+    { title: "NDF %", field: "ndf" },
+    { title: "NDFD %", field: "ndfd" },
+    { title: "240 UNDF", field: "at240undf" },
+    { title: "ADF %", field: "adf" },
+    { title: "Starch %", field: "starch" },
+    { title: "Sugar %", field: "sugar" },
+    { title: "NEL Mcal/lb", field: "nel" },
+    { title: "IVDMD", field: "IVDMD" },
+    { title: "TDN %", field: "tdn" },
+    { title: "Yield digestible NDF, T/A", field: "yielddigestiblendf" },
+    { title: "Disease Not to be Used", field: "diseasedonotuse" },
+    { title: "Disease %", field: "disease" },
+    { title: "Lodging Not to be Used", field: "donotuselodging" },
+    { title: "Lodging %", field: "lodging" },
   ];
 
   const handleChangeFilter = () => {
@@ -439,7 +508,8 @@ export function TransactionTable() {
                       backgroundColor: "#0021A5",
                     }}
                   >
-                    <p>Relative Maturity: {rowData.relativeMaturity}</p>
+                    {/* TODO: SECONDARY CHARACTERISTICS FIX
+                    <p>Relative Maturity: {rowData.relativematurity}</p>
                     <p>Estimated Silage (Ton/A): {rowData.drymatter}</p>
                     <p>Lodging Score: {rowData.lodging}</p>
                     <p>DM% at Harvest : {rowData.yield}</p>
@@ -452,7 +522,8 @@ export function TransactionTable() {
                     <p>ADF: {rowData.adf} </p>
                     <p>aNDF: {rowData.nel} </p>
                     <p>dNDF30: {rowData.at240undf} </p>
-                    <p>NDFD30 (%NDF): {rowData.at35dm} </p>
+                    <p>NDFD30 (%NDF): {rowData.at35dm} </p>*/}
+                    <p>Relative Maturity: {rowData.relativematurity}</p>
                   </div>
                 );
               },
