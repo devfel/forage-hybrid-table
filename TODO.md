@@ -112,7 +112,9 @@
 - Show Hide/Show Collumns Option to Professor.
 - Remeber that exists the Custom Render Option.
 
-### Helpfull Tutorials
+
+### Helpfull Tools & Tutorials
 - https://www.youtube.com/watch?v=4TOONPrrlKY - Learn Material Table with React JS | Material Table Tutorial
 - https://www.youtube.com/watch?v=RHOu7pt0_G8 - 15. Filtering in Material Table | Material UI
+- CSV, Excel to JSON Converter: https://shancarter.github.io/mr-data-converter/
 
