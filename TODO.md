@@ -89,6 +89,10 @@
 
 - [Not] Change the Order of Filter Lookup for Year (Default Year), so that the most recent year appear first when the user open fiters to select. (Maybe Wont Be necessary if Default Filters are Removed)
 
+
+
+- ADD TO NOTION: TODOS DONE, PROBLEMAS DATA E ULTIMOS COMMITS REALIZADOS
+
 ### Back-End
 
 - [ ] Create Back-end to send xls-file to the server.
