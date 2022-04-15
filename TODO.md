@@ -85,6 +85,8 @@
 - [ ] Change the colors of the Top Ones. (Legend: Top performer within season within year).
 - [ ] Species Filter must start with one of them and not have the all option. 
 - [ ] Create a NOTE saying that the top characteristics are for each specific year. 
+- [ ] Do a stress test on the system before release (look for paid options)
+- [ ] Ask if they want to pay for a Domain. 
 
 
 - [Not] Change the Order of Filter Lookup for Year (Default Year), so that the most recent year appear first when the user open fiters to select. (Maybe Wont Be necessary if Default Filters are Removed)

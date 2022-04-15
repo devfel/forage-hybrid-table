@@ -32,7 +32,7 @@ interface dataProps {
   starch: number | string | null;
   sugar: number | string | null;
   nel: number | string | null;
-  IVDMD: number | string | null;
+  ivdmd: number | string | null;
   tdn: number | string | null;
   yielddigestiblendf: number | string | null;
   diseasedonotuse: number | string | null;
@@ -138,7 +138,7 @@ export function TransactionTable() {
             nel: !isNaN(Number(el.nel)) ? Number(el.nel) : "-",
             tdn: !isNaN(Number(el.tdn)) ? Number(el.tdn) : "-",
             cp: !isNaN(Number(el.nel)) ? Number(el.nel) : "-",
-            ivtdmd30: !isNaN(Number(el.IVDMD)) ? Number(el.IVDMD) : "-",
+            ivtdmd30: !isNaN(Number(el.ivdmd)) ? Number(el.ivdmd) : "-",
             starch: !isNaN(Number(el.starch)) ? Number(el.starch) : "-",
             wsc: !isNaN(Number(el.tdn)) ? Number(el.tdn) : "-",
             adf: !isNaN(Number(el.adf)) ? Number(el.adf) : "-",
@@ -156,12 +156,12 @@ export function TransactionTable() {
             season: el.season,
             relativematurity: (el.relativematurity === null || el.relativematurity === "") ? -1 : Number(el.relativematurity),
             topyield: el.topyield,
-            yield: (el.yield === null || el.yield === "") ? -1 : Number(el.yield), //TODO: Change this to affect all values, they can be ordered, they are numbers not strings. 
-            at35dm: (el.at35dm === null || el.at35dm === "") ? -1 : Number(el.at35dm), //TODO: UNDEFINED ELEMENT. 
+            yield: (el.yield === null || el.yield === "") ? -1 : Number(el.yield),
+            at35dm: (el.at35dm === null || el.at35dm === "") ? -1 : Number(el.at35dm),
             topmilksilage: el.topmilksilage,
             milksilage: (el.milksilage === null || el.milksilage === "") ? -1 : Number(el.milksilage),
             topmilkacre: el.topmilkacre,
-            milkacre: (el.milkacre === null || el.milkacre === "") ? -1 : Number(el.milkacre), //TODO: Change this to affect all values, they can be ordered, they are numbers not strings. 
+            milkacre: (el.milkacre === null || el.milkacre === "") ? -1 : Number(el.milkacre),
             drymatter: (el.drymatter === null || el.drymatter === "") ? -1 : Number(el.drymatter),
             crudeprotein: (el.crudeprotein === null || el.crudeprotein === "") ? -1 : Number(el.crudeprotein),
             ndf: (el.ndf === null || el.ndf === "") ? -1 : Number(el.ndf),
@@ -171,7 +171,7 @@ export function TransactionTable() {
             starch: (el.starch === null || el.starch === "") ? -1 : Number(el.starch),
             sugar: (el.sugar === null || el.sugar === "") ? -1 : Number(el.sugar),
             nel: (el.nel === null || el.nel === "") ? -1 : Number(el.nel),
-            IVDMD: (el.IVDMD === null || el.IVDMD === "") ? -1 : Number(el.IVDMD), //TODO: Change this to affect all values, they can be ordered, they are numbers not strings. 
+            ivdmd: (el.ivdmd === null || el.ivdmd === "") ? -1 : Number(el.ivdmd),
             tdn: (el.tdn === null || el.tdn === "") ? -1 : Number(el.tdn),
             yielddigestiblendf: (el.yielddigestiblendf === null || el.yielddigestiblendf === "") ? -1 : Number(el.yielddigestiblendf),
             diseasedonotuse: (el.diseasedonotuse === null || el.diseasedonotuse === "") ? -1 : Number(el.diseasedonotuse),
@@ -361,7 +361,7 @@ export function TransactionTable() {
     { title: "Starch %", field: "starch" },
     { title: "Sugar %", field: "sugar" },
     { title: "NEL Mcal/lb", field: "nel" },
-    { title: "IVDMD %", field: "IVDMD" }, //TODO FIX IVDMD variable to be lowercase.
+    { title: "IVDMD %", field: "ivdmd" }, //TODO 
     { title: "TDN %", field: "tdn" },
     { title: "Yield digestible NDF, T/A", field: "yielddigestiblendf" },
     { title: "Disease Not to be Used", field: "diseasedonotuse" },
@@ -508,7 +508,7 @@ export function TransactionTable() {
                       backgroundColor: "#0021A5",
                     }}
                   >
-                    {/* TODO: SECONDARY CHARACTERISTICS FIX
+                    {/*TODO: SECONDARY CHARACTERISTICS FIX
                     <p>Relative Maturity: {rowData.relativematurity}</p>
                     <p>Estimated Silage (Ton/A): {rowData.drymatter}</p>
                     <p>Lodging Score: {rowData.lodging}</p>
@@ -516,7 +516,7 @@ export function TransactionTable() {
                     <p>NEl: {rowData.nel} </p>
                     <p>TDN: {rowData.tdn} </p>
                     <p>CP: {rowData.crudeprotein} </p>
-                    <p>IVTDMD30: {rowData.IVDMD} </p>
+                    <p>IVTDMD30: {rowData.ivdmd} </p>
                     <p>Starch: {rowData.starch} </p>
                     <p>WSC: {rowData.tdn} </p>
                     <p>ADF: {rowData.adf} </p>
