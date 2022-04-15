@@ -361,7 +361,7 @@ export function TransactionTable() {
     { title: "Starch %", field: "starch" },
     { title: "Sugar %", field: "sugar" },
     { title: "NEL Mcal/lb", field: "nel" },
-    { title: "IVDMD", field: "IVDMD" },
+    { title: "IVDMD %", field: "IVDMD" }, //TODO FIX IVDMD variable to be lowercase.
     { title: "TDN %", field: "tdn" },
     { title: "Yield digestible NDF, T/A", field: "yielddigestiblendf" },
     { title: "Disease Not to be Used", field: "diseasedonotuse" },
