@@ -89,4 +89,10 @@ export const Container = styled.div`
     margin: auto;
   }
 
+  .top-characteristic {
+    color: var(--green);
+    font-weight: bold;
+    font-size: 0.9rem;
+  }
+
 `;

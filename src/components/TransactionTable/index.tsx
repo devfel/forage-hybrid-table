@@ -123,32 +123,7 @@ export function TransactionTable() {
       .then((resp) => {
         const formattedData = resp.map((el: dataProps) => {
           return {
-            /* // TODO FIX ALL DATA TO BE LOADED BY THE SOFTWARE
-            
-            company: el.company,
-            hybrid: el.hybrid,
-            relativeMaturity: !isNaN(Number(el.relativeMaturity)) ? Number(el.relativeMaturity) : "-",
-            totalProduction: !isNaN(Number(el.yield)) ? Number(el.yield) : "-",
-            estimatedSilage: !isNaN(Number(el.drymatter)) ? Number(el.drymatter) : "-",
-            milkPerTon: !isNaN(Number(el.milksilage)) ? Number(el.milksilage) : "-",
-            milkPerAcre: !isNaN(Number(el.milkacre)) ? Number(el.milkacre) : "-",
-            diseaseScore: !isNaN(Number(el.disease)) ? Number(el.disease) : "-",
-            lodgingScore: !isNaN(Number(el.lodging)) ? Number(el.lodging) : "-",
-            dmAtHarvest: !isNaN(Number(el.drymatter)) ? Number(el.drymatter) : "-",
-            nel: !isNaN(Number(el.nel)) ? Number(el.nel) : "-",
-            tdn: !isNaN(Number(el.tdn)) ? Number(el.tdn) : "-",
-            cp: !isNaN(Number(el.nel)) ? Number(el.nel) : "-",
-            ivtdmd30: !isNaN(Number(el.ivdmd)) ? Number(el.ivdmd) : "-",
-            starch: !isNaN(Number(el.starch)) ? Number(el.starch) : "-",
-            wsc: !isNaN(Number(el.tdn)) ? Number(el.tdn) : "-",
-            adf: !isNaN(Number(el.adf)) ? Number(el.adf) : "-",
-            aNdf: !isNaN(Number(el.ndfd)) ? Number(el.ndfd) : "-",
-            // TODO - UPDATE PRIMARY AND SECODONDARY DATA HERE, exemple old: dNdf3: !isNaN(Number(el.dNdf3)) ? Number(el.dNdf3) : "-",
-            nDfd30Percentage: !isNaN(Number(el.ndfd)) ? Number(el.ndfd) : "-",
-            year: !isNaN(Number(el.year)) ? Number(el.year) : 0,
-            season: el.season,
-            type: el.species, 
-            */
+            // ALL DATA TO BE LOADED BY THE SOFTWARE
             year: el.year,
             species: el.species,
             company: el.company,
@@ -326,48 +301,38 @@ export function TransactionTable() {
   // --- ---
 
   const columns = [
-    //TODO FIX HERE THE MAIN COLUMNS THAT WILL APPEAR. 
-    /* OLD MAIN COLUMNS
-    { title: "Company", field: "company", cellStyle: BoldCellStyle, filterPlaceholder: "Search" },
-    { title: "Hybrid", field: "hybrid", cellStyle: BoldCellStyle, filterPlaceholder: "Search" },
-    { title: "Total Production (lb DM/A)", field: "totalProduction", filtering: false, defaultSort: "desc" },
-    //{ title: "Estimated Silage (ton Silage/A)", field: "estimatedSilage", filtering: false },
-    { title: "Milk Production per ton (lb milk/ton)", field: "milkPerTon", filtering: false },
-    { title: "Milk production per acre (lb milk/A)", field: "milkPerAcre", filtering: false },
-    { title: "Disease score", field: "diseaseScore", filtering: false },
-    { title: "Year", field: "year" },
-    { title: "Season", field: "season" },
-    { title: "Species", field: "type" },*/
+    // THE MAIN COLUMNS THAT WILL APPEAR IN THE TABLE 
+    // All Comentaries are columns that will NOT be displayed as main columns. 
 
     { title: "Year", field: "year" },
-    { title: "Species", field: "species" },
+    //{ title: "Species", field: "species" },
     { title: "Company", field: "company" },
     { title: "Hybrid", field: "hybrid" },
     { title: "Season", field: "season" },
-    { title: "Relative Maturity", field: "relativematurity" },
-    { title: "Top Yield", field: "topyield" },
-    { title: "Yield Dry Tons/acre", field: "yield", defaultSort: "desc" },
-    { title: "35% DM T/A", field: "at35dm" },
-    { title: "Top Milk lb/Ton of silage", field: "topmilksilage" },
-    { title: "Milk lb/Ton of silage", field: "milksilage" },
-    { title: "Top Milk lb/acre", field: "topmilkacre" },
-    { title: "Milk lb/acre", field: "milkacre" },
-    { title: "Dry matter %", field: "drymatter" },
-    { title: "Crude protein %", field: "crudeprotein" },
-    { title: "NDF %", field: "ndf" },
-    { title: "NDFD %", field: "ndfd" },
-    { title: "240 UNDF", field: "at240undf" },
-    { title: "ADF %", field: "adf" },
-    { title: "Starch %", field: "starch" },
-    { title: "Sugar %", field: "sugar" },
-    { title: "NEL Mcal/lb", field: "nel" },
-    { title: "IVDMD %", field: "ivdmd" }, //TODO 
-    { title: "TDN %", field: "tdn" },
-    { title: "Yield digestible NDF, T/A", field: "yielddigestiblendf" },
-    { title: "Disease Not to be Used", field: "diseasedonotuse" },
-    { title: "Disease %", field: "disease" },
-    { title: "Lodging Not to be Used", field: "donotuselodging" },
-    { title: "Lodging %", field: "lodging" },
+    //{ title: "Relative Maturity", field: "relativematurity" },
+    //{ title: "Top Yield", field: "topyield" },
+    { title: "Yield Dry Tons/acre", field: "yield", defaultSort: "desc", render: (row: any) => <div className={row.topyield === "*" ? "top-characteristic" : ""}>{row.yield !== -1 ? row.yield : "n/a"}</div> },
+    //{ title: "35% DM T/A", field: "at35dm" },
+    //{ title: "Top Milk lb/Ton of silage", field: "topmilksilage" },
+    { title: "Milk lb/Ton of silage", field: "milksilage", render: (row: any) => <div className={row.topmilksilage === "*" ? "top-characteristic" : ""}>{row.milksilage !== -1 ? row.milksilage : "n/a"}</div> },
+    //{ title: "Top Milk lb/acre", field: "topmilkacre" },
+    { title: "Milk lb/acre", field: "milkacre", render: (row: any) => <div className={row.topmilkacre === "*" ? "top-characteristic" : ""}>{row.milkacre !== -1 ? row.milkacre : "n/a"}</div> },
+    //{ title: "Dry matter %", field: "drymatter" },
+    //{ title: "Crude protein %", field: "crudeprotein" },
+    { title: "NDF %", field: "ndf", render: (row: any) => <div>{row.ndf !== -1 ? row.ndf : "n/a"}</div> },
+    { title: "NDFD %", field: "ndfd", render: (row: any) => <div>{row.ndfd !== -1 ? row.ndfd : "n/a"}</div> },
+    //{ title: "240 UNDF", field: "at240undf" },
+    //{ title: "ADF %", field: "adf" },
+    { title: "Starch %", field: "starch", render: (row: any) => <div>{row.starch !== -1 ? row.starch : "n/a"}</div> },
+    //{ title: "Sugar %", field: "sugar" },
+    //{ title: "NEL Mcal/lb", field: "nel" },
+    //{ title: "IVDMD %", field: "ivdmd" }, //TODO 
+    //{ title: "TDN %", field: "tdn" },
+    //{ title: "Yield digestible NDF, T/A", field: "yielddigestiblendf" },
+    //{ title: "Disease Not to be Used", field: "diseasedonotuse" },
+    //{ title: "Disease %", field: "disease" },
+    //{ title: "Lodging Not to be Used", field: "donotuselodging" },
+    //{ title: "Lodging %", field: "lodging" },
   ];
 
   const handleChangeFilter = () => {
@@ -382,9 +347,9 @@ export function TransactionTable() {
 
   //Variables to populate filters dinamically 
   const allYears = data.map(el => el.year);
-  const allYearsSingle = Array.from(new Set(allYears)).reverse();
+  const allYearsSingle = Array.from(new Set(allYears));
   const allCompanies = data.map(el => el.company);
-  const allCompaniesSingle = Array.from(new Set(allCompanies));
+  const allCompaniesSingle = Array.from(new Set(allCompanies)).sort();
   const allSeasons = data.map(el => el.season);
   const allSeasonsSingle = Array.from(new Set(allSeasons));
 
@@ -421,6 +386,7 @@ export function TransactionTable() {
             >
               <MenuItem value={"all"}><em>All</em></MenuItem>
               {allCompaniesSingle.map(el => <MenuItem value={el}>{el}</MenuItem>)}
+              {allCompaniesSingle.sort()}
             </Select>
           </div>
 
@@ -508,22 +474,20 @@ export function TransactionTable() {
                       backgroundColor: "#0021A5",
                     }}
                   >
-                    {/*TODO: SECONDARY CHARACTERISTICS FIX
-                    <p>Relative Maturity: {rowData.relativematurity}</p>
-                    <p>Estimated Silage (Ton/A): {rowData.drymatter}</p>
-                    <p>Lodging Score: {rowData.lodging}</p>
-                    <p>DM% at Harvest : {rowData.yield}</p>
-                    <p>NEl: {rowData.nel} </p>
-                    <p>TDN: {rowData.tdn} </p>
-                    <p>CP: {rowData.crudeprotein} </p>
-                    <p>IVTDMD30: {rowData.ivdmd} </p>
-                    <p>Starch: {rowData.starch} </p>
-                    <p>WSC: {rowData.tdn} </p>
-                    <p>ADF: {rowData.adf} </p>
-                    <p>aNDF: {rowData.nel} </p>
-                    <p>dNDF30: {rowData.at240undf} </p>
-                    <p>NDFD30 (%NDF): {rowData.at35dm} </p>*/}
-                    <p>Relative Maturity: {rowData.relativematurity}</p>
+                    {/*** SECONDARY CHARACTERISTICS ***/}
+                    <p>Relative Maturity: {rowData.relativematurity !== -1 ? rowData.relativematurity : "n/a"}</p>
+                    <p>35% DM T/A: {rowData.at35dm !== -1 ? rowData.at35dm : "n/a"}</p>
+                    <p>Dry matter %: {rowData.drymatter !== -1 ? rowData.drymatter : "n/a"}</p>
+                    <p>Crude protein %: {rowData.crudeprotein !== -1 ? rowData.crudeprotein : "n/a"}</p>
+                    <p>240 UNDF: {rowData.at240undf !== -1 ? rowData.at240undf : "n/a"}</p>
+                    <p>ADF %: {rowData.adf !== -1 ? rowData.adf : "n/a"}</p>
+                    <p>Sugar %: {rowData.sugar !== -1 ? rowData.sugar : "n/a"}</p>
+                    <p>NEL Mcal/lb: {rowData.nel !== -1 ? rowData.nel : "n/a"}</p>
+                    <p>IVDMD %: {rowData.ivdmd !== -1 ? rowData.ivdmd : "n/a"}</p>
+                    <p>TDN %: {rowData.tdn !== -1 ? rowData.tdn : "n/a"}</p>
+                    <p>Yield digestible NDF, T/A: {rowData.yielddigestiblendf !== -1 ? rowData.yielddigestiblendf : "n/a"}</p>
+                    <p>Disease %: {rowData.disease !== -1 ? rowData.disease : "n/a"}</p>
+                    <p>Lodging %: {rowData.lodging !== -1 ? rowData.lodging : "n/a"}</p>
                   </div>
                 );
               },
