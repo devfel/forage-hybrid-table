@@ -58,6 +58,19 @@
 - [X] Change the footer information on the chart page to match the table page. 0.5h
 - [X] Refactor Footer Code to be a Component and not Coded Twice the same way. 3h
 
+- [X] Change table to show only the 9 chosen characteristics as Main columns. 1h
+- [X] Change the show details button to show all the other 13 characteristics as secondary data. 1h
+- [X] Invert Year of the Filter By Year to show recent years first. 0.5h
+- [X] Organize all the companies in ascending alphabetic order on the filters. 2h
+- [X] Change -1 to be (n/a) on the main characteristics. 2h
+- [X] Change -1 to be (n/a) on the secondary characteristics. 1h
+- [X] Change format of some values if it is Top Characteristics.  Different Color and Size and Bold. 5h
+- [X] Change max width of table and header from 1120 px to 1280px.  0.5h
+- [X] Add Filter for Species. 3h
+- [X] Pre select one filter for Species. (don’t allow “all” option). (Still not 100% accurate) 11h
+
+- [ ] Add Modal for the user to select what species he/she wants. 
+- [ ] Double check Pre selected filter for Species. Apprently still not 100% accurate for every time page is loaded.
 - [ ] Make Last Year avaible as default on the Search.
 
 - [ ] Create Custom Filter for Species.
@@ -112,7 +125,7 @@
 - https://cals.cornell.edu/field-crops/about/resources/web-based-tools (Variety of Tools)
 - http://corn.agronomy.wisc.edu/Season/DSS.aspx (Corn Agronomy - Decision Support Systems)
 - https://www.whminer.org/dairy (Dairy Management Tools) & Small Article: https://www.progressivedairy.com/topics/feed-nutrition/the-next-step-in-corn-silage-hybrid-evaluation-fiber-and-starch-yields
-- https://auburn.medius.re
+- https://auburn.medius.re (One Professor Wallau Sended to Me)
 
 ### Other Information
 - Show Grouping Option to Professor.

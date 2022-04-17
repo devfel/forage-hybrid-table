@@ -1,12 +1,8 @@
 import MaterialTable from "material-table";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import { Button, Checkbox, Select, MenuItem } from "@material-ui/core";
-import DataSet from "../../data/data.json"
-
+import { Button, Select, MenuItem } from "@material-ui/core";
 import { useLayoutEffect, useEffect, useState } from "react";
 import { Container } from "./styles";
 import { ScatterChart, CartesianGrid, XAxis, YAxis, ZAxis, Tooltip, Legend, Scatter } from "recharts";
-import { Console } from "console";
 import { Footer } from "../Footer";
 
 interface dataProps {
@@ -90,16 +86,18 @@ export function TransactionTable() {
   const [filteredData, setFilteredData] = useState<dataProps[]>([]);
   const [yearFilter, setYearFilter] = useState<string>("all");
   const [companyFilter, setCompanyFilter] = useState<string>("all");
+  const [speciesFilter, setSpeciesFilter] = useState<string>("all");
   const [seasonFilter, setSeasonFilter] = useState<string>("all");
 
   useEffect(() => {
     const year_filtered = selectedYearFilter(data);
     const company_filtered = selectedCompanyFilter(year_filtered);
-    const season_filtered = selectedSeasonFilter(company_filtered);
+    const species_filtered = selectedSpeciesFilter(company_filtered);
+    const season_filtered = selectedSeasonFilter(species_filtered);
 
     setFilteredData(season_filtered);
 
-  }, [yearFilter, companyFilter, seasonFilter])
+  }, [yearFilter, companyFilter, speciesFilter, seasonFilter])
 
 
   function selectedYearFilter(auxData: dataProps[]): dataProps[] {
@@ -107,6 +105,9 @@ export function TransactionTable() {
   }
   function selectedCompanyFilter(auxData: dataProps[]): dataProps[] {
     return (companyFilter === "all" ? auxData : auxData.filter(dt => dt.company === (companyFilter)))
+  }
+  function selectedSpeciesFilter(auxData: dataProps[]): dataProps[] {
+    return (speciesFilter === "all" ? auxData : auxData.filter(dt => dt.species === (speciesFilter)))
   }
   function selectedSeasonFilter(auxData: dataProps[]): dataProps[] {
     return (seasonFilter === "all" ? auxData : auxData.filter(dt => dt.season === (seasonFilter)))
@@ -158,6 +159,8 @@ export function TransactionTable() {
 
         setFilteredData(formattedData);
         setData(formattedData);
+
+        setSpeciesFilter("Corn"); //TODO SELECT THE CORRECT VALUE DEPENDING ON THE USER.
         return setData(formattedData);
       });
   }, []);
@@ -350,6 +353,8 @@ export function TransactionTable() {
   const allYearsSingle = Array.from(new Set(allYears));
   const allCompanies = data.map(el => el.company);
   const allCompaniesSingle = Array.from(new Set(allCompanies)).sort();
+  const allSpecies = data.map(el => el.species);
+  const allSpeciesSingle = Array.from(new Set(allSpecies)).sort();
   const allSeasons = data.map(el => el.season);
   const allSeasonsSingle = Array.from(new Set(allSeasons));
 
@@ -375,6 +380,20 @@ export function TransactionTable() {
         </div>
 
         <div className="custom-filters">
+
+          <div className="custom-company-filter custom-filter-item">
+            <p>Filter by Species:</p>
+            <Select className="select-filter"
+              labelId="filter-species-label"
+              id="filter-species-id"
+              value={speciesFilter}
+              label="Species"
+              onChange={(e) => setSpeciesFilter(e.target.value as any)}
+            >
+              {allSpeciesSingle.map(el => <MenuItem value={el}>{el}</MenuItem>)}
+            </Select>
+          </div>
+
           <div className="custom-company-filter custom-filter-item">
             <p>Filter by Company:</p>
             <Select className="select-filter"
@@ -386,7 +405,6 @@ export function TransactionTable() {
             >
               <MenuItem value={"all"}><em>All</em></MenuItem>
               {allCompaniesSingle.map(el => <MenuItem value={el}>{el}</MenuItem>)}
-              {allCompaniesSingle.sort()}
             </Select>
           </div>
 
@@ -411,8 +429,6 @@ export function TransactionTable() {
               */ }
             </Select>
           </div>
-
-
 
           <div className="custom-season-filter custom-filter-item">
             <p>Filter by Season:</p>
@@ -514,6 +530,20 @@ export function TransactionTable() {
         </div>
 
         <div className="custom-filters">
+
+          <div className="custom-company-filter custom-filter-item">
+            <p>Filter by Species:</p>
+            <Select className="select-filter"
+              labelId="filter-species-label"
+              id="filter-species-id"
+              value={speciesFilter}
+              label="Species"
+              onChange={(e) => setSpeciesFilter(e.target.value as any)}
+            >
+              {allSpeciesSingle.map(el => <MenuItem value={el}>{el}</MenuItem>)}
+            </Select>
+          </div>
+
           <div className="custom-company-filter custom-filter-item">
             <p>Filter by Company:</p>
             <Select className="select-filter"
@@ -540,6 +570,13 @@ export function TransactionTable() {
             >
               <MenuItem value={"all"}><em>All</em></MenuItem>
               {allYearsSingle.map(el => <MenuItem value={el}>{el}</MenuItem>)}
+
+              {/* //Old Method used to Populate Filters Manually
+              <MenuItem value={2020}>2020</MenuItem>
+              <MenuItem value={2019}>2019</MenuItem>
+              <MenuItem value={2018}>2018</MenuItem>
+              <MenuItem value={2017}>2017</MenuItem>
+              */ }
             </Select>
           </div>
 
