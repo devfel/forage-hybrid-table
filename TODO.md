@@ -73,7 +73,6 @@
 - [ ] Double check Pre selected filter for Species. Apprently still not 100% accurate for every time page is loaded.
 - [ ] Make Last Year avaible as default on the Search.
 
-- [ ] Create Custom Filter for Species.
 - [ ] Do the Custom Search Bar for Hybrid Names. 
 - [ ] Change which columns will be shown as primary and as secondary.
 - [ ] Change the Titles of columns and secondary charactersitics.
