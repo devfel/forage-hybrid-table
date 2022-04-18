@@ -79,6 +79,7 @@ export function TransactionTable() {
   const chartWidth = windowWidth > 1120 ? 1120 - 30 : windowWidth - 30;
   const chartHeight = chartWidth < 600 ? 300 : chartWidth / 2;
 
+
   //////////////////////////////////////////
   // Customized Filters
   //////////////////////////////////////////
@@ -602,15 +603,11 @@ export function TransactionTable() {
         <ScatterChart className="chart-container" width={chartWidth} height={chartHeight} margin={{ top: 20, right: 30, bottom: 10, left: 0 }}>
           <CartesianGrid strokeDasharray="1 1" />
           <ZAxis dataKey="hybrid" name="Hybrid Entry" unit="" />
-          <XAxis tickCount={5} dataKey="totalProduction" type="number" domain={[6000, 22000]} name="Total Production" unit=" lb DM/A" />
-          <YAxis interval={0} tickCount={5} dataKey="milkPerTon" type="number" domain={[1400, 3800]} name="Milk Production" unit=" mk/ton" />
+          <XAxis tickCount={4} dataKey="yield" type="number" domain={[1, 16]} name="Total Production" unit=" lb DM/A" />
+          <YAxis interval={0} tickCount={4} dataKey="milksilage" type="number" domain={[1400, 4100]} name="Milk Production" unit=" mk/ton" />
           <Tooltip cursor={{ strokeDasharray: "10 10" }} />
           <Legend />
-          {/* <Scatter name="All" data={data} fill="#000" /> */}
-          <Scatter name="Spring Corn Silage" data={chartDataCornSilage} fill="#8884d8" />
-          <Scatter name="Summer Corn" data={chartDataCorn} fill="#96afa0" />
-          <Scatter name="Summer Forage Soghum" data={chartDataForageSoghum} fill="#443850" />
-          <Scatter name="Summer Soghum Sudan" data={chartDataSoghumSudan} fill="#008f28" />
+          <Scatter name="Data" data={filteredData} fill="#0000FF" />
         </ScatterChart>
 
         <Footer />
