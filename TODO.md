@@ -68,6 +68,7 @@
 - [X] Change max width of table and header from 1120 px to 1280px.  0.5h
 - [X] Add Filter for Species. 3h
 - [X] Pre select one filter for Species. (don’t allow “all” option). (Still not 100% accurate) 11h
+- [X] Fixing the chart page with the new data, and make it work with all filters. 20h
 
 - [ ] Add Modal for the user to select what species he/she wants. 
 - [ ] Double check Pre selected filter for Species. Apprently still not 100% accurate for every time page is loaded.
