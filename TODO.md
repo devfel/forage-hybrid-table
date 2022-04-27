@@ -85,6 +85,7 @@
 - [ ] Refactor sourccde code as components to be easier to maintain and update.
 - [ ] With all the correct data, certify chart will work for higher and smallers values predefined on the chart MAX MIN.
 - [ ] Test and Make Sure all the Needed FaveIcons are Working
+- [ ] Finalize project to start tutorial on it. 
 
 - Changes to be made after Meeting with Ashley.
 
