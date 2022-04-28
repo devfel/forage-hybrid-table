@@ -161,6 +161,7 @@ export function TransactionTable() {
         setFilteredData(formattedData);
         setData(formattedData);
 
+        setYearFilter("2021");
         setSpeciesFilter("Corn"); //TODO SELECT THE CORRECT VALUE DEPENDING ON THE USER.
         return setData(formattedData);
       });
