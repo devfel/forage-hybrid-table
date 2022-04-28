@@ -35,6 +35,7 @@ interface dataProps {
   disease: number | string | null;
   donotuselodging: number | string | null;
   lodging: number | string | null;
+  active: number;
 }
 
 interface chartDataProps {
@@ -124,6 +125,7 @@ export function TransactionTable() {
       .then((resp) => resp.json())
       .then((resp) => {
         const formattedData = resp.map((el: dataProps) => {
+          //TODO, DONT LONAD IF ACTIVE === 0 .... if (el.active === 1) {
           return {
             // ALL DATA TO BE LOADED BY THE SOFTWARE
             year: el.year,
@@ -155,7 +157,9 @@ export function TransactionTable() {
             disease: (el.disease === null || el.disease === "") ? -1 : Number(el.disease),
             donotuselodging: (el.donotuselodging === null || el.donotuselodging === "") ? -1 : Number(el.donotuselodging),
             lodging: (el.lodging === null || el.lodging === "") ? -1 : Number(el.lodging),
+            active: (el.active)
           };
+          //}
         });
 
         setFilteredData(formattedData);

@@ -73,6 +73,7 @@
 - [ ] Add Modal for the user to select what species he/she wants. 
 - [ ] Double check Pre selected filter for Species. Apprently still not 100% accurate for every time page is loaded.
 - [ ] Make Last Year avaible as default on the Search.
+- [ ] Change the software so it will not load data that active column is equal to 0.
 
 - [ ] Do the Custom Search Bar for Hybrid Names. 
 - [ ] Change which columns will be shown as primary and as secondary.
