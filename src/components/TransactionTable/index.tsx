@@ -382,7 +382,7 @@ export function TransactionTable() {
 
         <div className="custom-filters">
 
-          <div className="custom-company-filter custom-filter-item">
+          <div className="custom-species-filter custom-filter-item">
             <p>Filter by Species:</p>
             <Select className="select-filter"
               labelId="filter-species-label"
@@ -394,21 +394,6 @@ export function TransactionTable() {
               {allSpeciesSingle.map(el => <MenuItem value={el}>{el}</MenuItem>)}
             </Select>
           </div>
-
-          <div className="custom-company-filter custom-filter-item">
-            <p>Filter by Company:</p>
-            <Select className="select-filter"
-              labelId="filter-company-label"
-              id="filter-company-id"
-              value={companyFilter}
-              label="Company"
-              onChange={(e) => setCompanyFilter(e.target.value as any)}
-            >
-              <MenuItem value={"all"}><em>All</em></MenuItem>
-              {allCompaniesSingle.map(el => <MenuItem value={el}>{el}</MenuItem>)}
-            </Select>
-          </div>
-
 
           <div className="custom-year-filter custom-filter-item">
             <p>Filter by Year:</p>
@@ -442,6 +427,21 @@ export function TransactionTable() {
             >
               <MenuItem value={"all"}><em>All</em></MenuItem>
               {allSeasonsSingle.map(el => <MenuItem value={el}>{el}</MenuItem>)}
+            </Select>
+          </div>
+
+
+          <div className="custom-company-filter custom-filter-item">
+            <p>Filter by Company:</p>
+            <Select className="select-filter"
+              labelId="filter-company-label"
+              id="filter-company-id"
+              value={companyFilter}
+              label="Company"
+              onChange={(e) => setCompanyFilter(e.target.value as any)}
+            >
+              <MenuItem value={"all"}><em>All</em></MenuItem>
+              {allCompaniesSingle.map(el => <MenuItem value={el}>{el}</MenuItem>)}
             </Select>
           </div>
         </div>
@@ -532,7 +532,7 @@ export function TransactionTable() {
 
         <div className="custom-filters">
 
-          <div className="custom-company-filter custom-filter-item">
+          <div className="custom-species-filter custom-filter-item">
             <p>Filter by Species:</p>
             <Select className="select-filter"
               labelId="filter-species-label"
@@ -542,20 +542,6 @@ export function TransactionTable() {
               onChange={(e) => setSpeciesFilter(e.target.value as any)}
             >
               {allSpeciesSingle.map(el => <MenuItem value={el}>{el}</MenuItem>)}
-            </Select>
-          </div>
-
-          <div className="custom-company-filter custom-filter-item">
-            <p>Filter by Company:</p>
-            <Select className="select-filter"
-              labelId="filter-company-label"
-              id="filter-company-id"
-              value={companyFilter}
-              label="Company"
-              onChange={(e) => setCompanyFilter(e.target.value as any)}
-            >
-              <MenuItem value={"all"}><em>All</em></MenuItem>
-              {allCompaniesSingle.map(el => <MenuItem value={el}>{el}</MenuItem>)}
             </Select>
           </div>
 
@@ -592,6 +578,20 @@ export function TransactionTable() {
             >
               <MenuItem value={"all"}><em>All</em></MenuItem>
               {allSeasonsSingle.map(el => <MenuItem value={el}>{el}</MenuItem>)}
+            </Select>
+          </div>
+
+          <div className="custom-company-filter custom-filter-item">
+            <p>Filter by Company:</p>
+            <Select className="select-filter"
+              labelId="filter-company-label"
+              id="filter-company-id"
+              value={companyFilter}
+              label="Company"
+              onChange={(e) => setCompanyFilter(e.target.value as any)}
+            >
+              <MenuItem value={"all"}><em>All</em></MenuItem>
+              {allCompaniesSingle.map(el => <MenuItem value={el}>{el}</MenuItem>)}
             </Select>
           </div>
         </div>
