@@ -534,6 +534,10 @@ export function TransactionTable() {
           Chart
         </Button>
 
+        <Button className="tutorial-button" variant="contained">
+          <a href="#">Tutorial</a>
+        </Button>
+
         {/* CUSTOM FILTERS BEGIN - CHART PAGE */}
         <div className="show-filter-select-box">
           <p style={{ fontSize: "1rem" }}> <b>Available Filters</b> </p>
