@@ -374,6 +374,10 @@ export function TransactionTable() {
           Chart
         </Button>
 
+        <Button className="tutorial-button" variant="contained">
+          <a href="#">Tutorial</a>
+        </Button>
+
         {/* Not using the original filters
         <div className="show-filter-select-box">
           <FormControlLabel style={{ fontSize: "20rem" }} control={<Checkbox checked={filter} onChange={handleChangeFilter} color="default" />} label="Hide/Show Filters" />

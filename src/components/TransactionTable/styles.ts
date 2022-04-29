@@ -71,6 +71,27 @@ export const Container = styled.div`
     background-color: var(--green);
   }
 
+  button.selected {
+    margin: 0.5rem;
+    font-weight: 600;
+    font-family: "Poppins", sans-serif;
+    color: #fff;
+    background-color: var(--green);
+  }
+
+  .tutorial-button{
+    margin-left: 2rem;
+    background-color: var(--orange);
+  }
+  .tutorial-button a{
+    color: #fafafa;
+    text-decoration: none;
+  }
+
+  .tutorial-button:hover{
+    background-color: var(--orange-dark);
+  }
+
   .chart-title {
     text-align: center;
     font-size: 1.25rem;
