@@ -19,7 +19,7 @@ export function Footer() {
             </a></b>{" "}
             for more information.
           </span>
-          <span>Contact your <b><a href="https://directory.ifas.ufl.edu/extprogram?pageID=3&p=BB">Local Extension Agent</a></b> or reach out to us through <b><a href="mailto: forages@ifas.ufl.edu">forages@ifas.ufl.edu</a></b>.</span>
+          <span>Contact your <b><a href="https://directory.ifas.ufl.edu/extprogram?pageID=3&p=BB" target="_blank" rel="noopener noreferrer">Local Extension Agent</a></b> or reach out to us through <b><a href="mailto: forages@ifas.ufl.edu">forages@ifas.ufl.edu</a></b>.</span>
         </div>
       </Content>
     </Container>
