@@ -615,20 +615,20 @@ export function TransactionTable() {
           </div>
         </div>
         {/* CUSTOM FILTERS ENDS - CHART PAGE */}
+        <div className="chart-box">
+          <div className="chart-title">UF Silage Hybrid Trial Chart</div>
+          <div className="chart-sub-title" style={{ color: "#FAFAFA" }}>Yield Dry Matter (DM tons/acre) X Milk Production (lb milk/ton) </div>
 
-        <div className="chart-title">UF Silage Hybrid Trial Chart</div>
-        <div className="chart-sub-title">Yield Dry Matter (Tons/acre) X Milk Production (lb milk/ton) </div>
-
-        <ScatterChart className="chart-container" width={chartWidth} height={chartHeight} margin={{ top: 20, right: 30, bottom: 10, left: 0 }}>
-          <CartesianGrid strokeDasharray="1 1" />
-          <ZAxis dataKey="companyhybrid" name="Company/Hybrid" unit="" />
-          <XAxis tickCount={4} dataKey="yield" type="number" domain={[1, 16]} name="Total Production" unit=" lb DM/A" />
-          <YAxis interval={0} tickCount={4} dataKey="milksilage" type="number" domain={[1400, 4100]} name="Milk Production" unit=" mk/ton" />
-          <Tooltip cursor={{ strokeDasharray: "10 10" }} />
-          <Legend />
-          <Scatter name={speciesFilter} data={filteredData} fill="#22884C" />
-        </ScatterChart>
-
+          <ScatterChart className="chart-container" width={chartWidth} height={chartHeight} margin={{ top: 20, right: 30, bottom: 10, left: 0 }}>
+            <CartesianGrid strokeDasharray="1 1" />
+            <ZAxis dataKey="companyhybrid" name="Company/Hybrid" unit="" />
+            <XAxis tickCount={4} dataKey="yield" type="number" domain={[1, 16]} name="Total Production" unit=" lb DM/A" />
+            <YAxis interval={0} tickCount={4} dataKey="milksilage" type="number" domain={[1400, 4100]} name="Milk Production" unit=" mk/ton" />
+            <Tooltip cursor={{ strokeDasharray: "10 10" }} />
+            <Legend />
+            <Scatter name={speciesFilter} data={filteredData} fill="#22884C" />
+          </ScatterChart>
+        </div>
         <Footer />
       </Container>
     );

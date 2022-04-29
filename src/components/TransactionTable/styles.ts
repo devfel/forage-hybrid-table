@@ -56,7 +56,7 @@ export const Container = styled.div`
       text-align: center;
     }
   }
-  
+
   button {
     margin: 0.5rem;
     font-weight: 600;
@@ -101,15 +101,25 @@ export const Container = styled.div`
     font-weight: 500;
     line-height: 1.6;
     letter-spacing: 0.0075em;
+    padding: 0.6rem 0 0.6rem 0;
   }
 
   .chart-sub-title {
-    margin-top: 1rem;
     text-align: center;
+    background-color: var(--orange);
+    padding: 0.6rem 0 0.6rem 0;
+    font-weight: bold;
+    font-size: 0.9rem;
   }
 
   .chart-container {
     margin: auto;
+  }
+
+  .chart-box {
+    border: 0;
+	  border-radius: 2px;
+	  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   }
 
   .top-characteristic {
