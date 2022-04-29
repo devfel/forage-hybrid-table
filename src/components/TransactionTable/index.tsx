@@ -10,6 +10,7 @@ interface dataProps {
   species: string;
   company: string;
   hybrid: string;
+  companyhybrid: string;
   season: string;
   relativematurity: number | string | null;
   topyield: number | string | null;
@@ -132,6 +133,7 @@ export function TransactionTable() {
             species: el.species,
             company: el.company,
             hybrid: el.hybrid,
+            companyhybrid: (el.company + " / " + el.hybrid),
             season: el.season,
             relativematurity: (el.relativematurity === null || el.relativematurity === "") ? -1 : Number(el.relativematurity),
             topyield: el.topyield,
@@ -521,12 +523,15 @@ export function TransactionTable() {
           ]}
           title="UF Silage Hybrid Trial Table"
         />
+        <span style={{ color: "darkblue", fontWeight: "bold", margin: "1rem" }}>Blue and bold characteristics in the table mean it was a top performer within that season and year.</span>
+        <br></br>
         <Footer />
       </Container>
     );
   } else {
     return (
       <Container>
+
         <Button onClick={handleClickTable} variant="contained">
           Table
         </Button>
@@ -537,6 +542,7 @@ export function TransactionTable() {
         <Button className="tutorial-button" variant="contained">
           <a href="#">Tutorial</a>
         </Button>
+
 
         {/* CUSTOM FILTERS BEGIN - CHART PAGE */}
         <div className="show-filter-select-box">
@@ -611,16 +617,16 @@ export function TransactionTable() {
         {/* CUSTOM FILTERS ENDS - CHART PAGE */}
 
         <div className="chart-title">UF Silage Hybrid Trial Chart</div>
-        <div className="chart-sub-title">Total DM Production (lb DM/ton) X Milk Production (lb milk/ton) </div>
+        <div className="chart-sub-title">Yield Dry Matter (Tons/acre) X Milk Production (lb milk/ton) </div>
 
         <ScatterChart className="chart-container" width={chartWidth} height={chartHeight} margin={{ top: 20, right: 30, bottom: 10, left: 0 }}>
           <CartesianGrid strokeDasharray="1 1" />
-          <ZAxis dataKey="hybrid" name="Hybrid Entry" unit="" />
+          <ZAxis dataKey="companyhybrid" name="Company/Hybrid" unit="" />
           <XAxis tickCount={4} dataKey="yield" type="number" domain={[1, 16]} name="Total Production" unit=" lb DM/A" />
           <YAxis interval={0} tickCount={4} dataKey="milksilage" type="number" domain={[1400, 4100]} name="Milk Production" unit=" mk/ton" />
           <Tooltip cursor={{ strokeDasharray: "10 10" }} />
           <Legend />
-          <Scatter name="Data" data={filteredData} fill="#0000FF" />
+          <Scatter name={speciesFilter} data={filteredData} fill="#22884C" />
         </ScatterChart>
 
         <Footer />

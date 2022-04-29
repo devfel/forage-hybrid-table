@@ -8,6 +8,7 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-evenly; */
+  
   .custom-filters {
     display: flex;
     flex-direction: column;
@@ -55,7 +56,7 @@ export const Container = styled.div`
       text-align: center;
     }
   }
-
+  
   button {
     margin: 0.5rem;
     font-weight: 600;
@@ -79,10 +80,11 @@ export const Container = styled.div`
     background-color: var(--green);
   }
 
-  .tutorial-button{
+  button.tutorial-button{
     margin-left: 2rem;
     background-color: var(--orange);
   }
+  
   .tutorial-button a{
     color: #fafafa;
     text-decoration: none;
