@@ -103,6 +103,14 @@
 - [ ] Do a stress test on the system before release (look for paid options)
 - [ ] Ask if they want to pay for a Domain. 
 
+- [X] Changed the 3rd information on the chart to show both Company and Hybrid names (it is not exactly the way I wanted, one below the other, but at least the company name is there now).
+- [X] Changed the footer information.
+- [X] Changed the colors of the chart dots to Green, I think they represent more of the Forage, and also there was too much blue already.
+- [X] Changed the chart subtitle design to match the table with orange and white letters.
+- [X] Change the chart X/Y axis names.
+- [X] Changed the chart box to match the table design with a shadow style border box. 
+- [X] Removed the "Blue and Bold... phrase" from the footer of the chart page.
+
 
 - [Not] Change the Order of Filter Lookup for Year (Default Year), so that the most recent year appear first when the user open fiters to select. (Maybe Wont Be necessary if Default Filters are Removed)
 

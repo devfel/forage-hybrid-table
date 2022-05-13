@@ -89,7 +89,7 @@ export function TransactionTable() {
   const [filteredData, setFilteredData] = useState<dataProps[]>([]);
   const [yearFilter, setYearFilter] = useState<string>("all");
   const [companyFilter, setCompanyFilter] = useState<string>("all");
-  const [speciesFilter, setSpeciesFilter] = useState<string>("all");
+  const [speciesFilter, setSpeciesFilter] = useState<string>("Corn");
   const [seasonFilter, setSeasonFilter] = useState<string>("all");
 
   useEffect(() => {
