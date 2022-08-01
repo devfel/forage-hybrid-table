@@ -126,7 +126,6 @@ export function TransactionTable() {
       .then((resp) => resp.json())
       .then((resp) => {
         const formattedData = resp.map((el: dataProps) => {
-          //TODO, DONT LONAD IF ACTIVE === 0 .... if (el.active === 1) {
           return {
             // ALL DATA TO BE LOADED BY THE SOFTWARE
             year: el.year,
@@ -161,8 +160,7 @@ export function TransactionTable() {
             lodging: (el.lodging === null || el.lodging === "") ? -1 : Number(el.lodging),
             active: (el.active)
           };
-          //}
-        });
+        }).filter((el: dataProps) => el.active === 1); //FILTER TO LOAD ONLY ELEMENTS WITH ACTIVE === 1
 
         setFilteredData(formattedData);
         setData(formattedData);
