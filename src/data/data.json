@@ -2434,7 +2434,7 @@
         "rain_in": 14.7,
         "radiation": null,
         "daysfromjan1": 0,
-        "eff":#DIV/0!,
+        "eff": null,
         "termal_accum_perday": null,
         "days": null,
         "termal_accum_total": null
