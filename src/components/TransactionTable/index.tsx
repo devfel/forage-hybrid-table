@@ -356,13 +356,13 @@ export function TransactionTable() {
 
   //Variables to populate filters dinamically 
   const allYears = data.map(el => el.year);
-  const allYearsSingle = Array.from(new Set(allYears));
+  const allYearsSingle = Array.from(new Set(allYears)).sort().reverse();
   const allCompanies = data.map(el => el.company);
   const allCompaniesSingle = Array.from(new Set(allCompanies)).sort();
   const allSpecies = data.map(el => el.species);
   const allSpeciesSingle = Array.from(new Set(allSpecies)).sort();
   const allSeasons = data.map(el => el.season);
-  const allSeasonsSingle = Array.from(new Set(allSeasons));
+  const allSeasonsSingle = Array.from(new Set(allSeasons)).sort();
 
   if (screenSwitch === "table2020") {
     return (
