@@ -122,7 +122,7 @@ export function TransactionTable() {
 
   // Populating Data Set
   useEffect(() => {
-    fetch("https://raw.githubusercontent.com/devfel/forage-hybrid-table/master/src/data/data2021.json")
+    fetch("https://raw.githubusercontent.com/devfel/forage-hybrid-table/master/src/data/data.json")
       .then((resp) => resp.json())
       .then((resp) => {
         const formattedData = resp.map((el: dataProps) => {
