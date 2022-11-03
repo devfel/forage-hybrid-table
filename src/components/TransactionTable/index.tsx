@@ -165,7 +165,7 @@ export function TransactionTable() {
         setFilteredData(formattedData);
         setData(formattedData);
 
-        setYearFilter("2021");
+        setYearFilter("2022"); //TODO AUTOMATIC SELECT THE MOST CURRENT YEAR IN THE DATA AS DEFAULT.
         setSpeciesFilter("Corn"); //TODO SELECT THE CORRECT VALUE DEPENDING ON THE USER.
         return setData(formattedData);
       });
