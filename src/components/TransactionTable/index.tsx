@@ -88,7 +88,7 @@ export function TransactionTable() {
 
   const [filteredData, setFilteredData] = useState<dataProps[]>([]);
   const [yearFilter, setYearFilter] = useState<string>("all");
-  const [companyFilter, setCompanyFilter] = useState<string>("all");
+  const [companyFilter, setCompanyFilter] = useState<string[]>([]);
   const [speciesFilter, setSpeciesFilter] = useState<string>("Corn");
   const [seasonFilter, setSeasonFilter] = useState<string>("all");
 
@@ -107,7 +107,7 @@ export function TransactionTable() {
     return (yearFilter === "all" ? auxData : auxData.filter(dt => dt.year === Number(yearFilter)))
   }
   function selectedCompanyFilter(auxData: dataProps[]): dataProps[] {
-    return (companyFilter === "all" ? auxData : auxData.filter(dt => dt.company === (companyFilter)))
+    return (companyFilter.length === 0 ? auxData : auxData.filter(dt => companyFilter.includes(dt.company)))
   }
   function selectedSpeciesFilter(auxData: dataProps[]): dataProps[] {
     return (speciesFilter === "all" ? auxData : auxData.filter(dt => dt.species === (speciesFilter)))
@@ -375,7 +375,7 @@ export function TransactionTable() {
         </Button>
 
         <Button className="tutorial-button" variant="contained">
-          <a href="#">Tutorial</a>
+          <a href="https://nwdistrict.ifas.ufl.edu/phag/2022/06/10/introducing-the-new-uf-silage-hybrid-decision-tool/" target="_blank">Tutorial</a>
         </Button>
 
         {/* Not using the original filters
@@ -441,15 +441,16 @@ export function TransactionTable() {
 
 
           <div className="custom-company-filter custom-filter-item">
-            <p>Filter by Company:</p>
+            <p>Filter by Companies:</p>
             <Select className="select-filter"
               labelId="filter-company-label"
               id="filter-company-id"
               value={companyFilter}
+              multiple
               label="Company"
-              onChange={(e) => setCompanyFilter(e.target.value as any)}
+              onChange={(e) => setCompanyFilter(e.target.value as string[])}
             >
-              <MenuItem value={"all"}><em>All</em></MenuItem>
+              <MenuItem value={"Companies"}><em>Companies</em></MenuItem>
               {allCompaniesSingle.map(el => <MenuItem value={el}>{el}</MenuItem>)}
             </Select>
           </div>
@@ -599,15 +600,16 @@ export function TransactionTable() {
           </div>
 
           <div className="custom-company-filter custom-filter-item">
-            <p>Filter by Company:</p>
+            <p>Filter by Companies:</p>
             <Select className="select-filter"
               labelId="filter-company-label"
               id="filter-company-id"
               value={companyFilter}
+              multiple
               label="Company"
-              onChange={(e) => setCompanyFilter(e.target.value as any)}
+              onChange={(e) => setCompanyFilter(e.target.value as string[])}
             >
-              <MenuItem value={"all"}><em>All</em></MenuItem>
+              <MenuItem value={"Companies"}><em>Companies</em></MenuItem>
               {allCompaniesSingle.map(el => <MenuItem value={el}>{el}</MenuItem>)}
             </Select>
           </div>
