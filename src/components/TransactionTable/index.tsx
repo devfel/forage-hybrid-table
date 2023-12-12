@@ -637,7 +637,8 @@ export function TransactionTable() {
                         : "n/a"}
                     </p>
                     <p>
-                      35% DM T/A:{" "}
+                      Estimated Silage T/A:{" "}
+                      {/* ESTIMATED SILAGE @ 35%DM (TONS/ACRE) */}
                       {rowData.at35dm !== -1 ? rowData.at35dm : "n/a"}
                     </p>
                     <p>
