@@ -224,10 +224,17 @@ export function TransactionTable() {
           })
           .filter((el: dataProps) => el.active === 1); //FILTER TO LOAD ONLY ELEMENTS WITH ACTIVE === 1
 
+        // Find the most current year
+        const mostCurrentYear = formattedData.reduce(
+          (max: number, item: dataProps) => (item.year > max ? item.year : max),
+          formattedData[0].year
+        );
+
         setFilteredData(formattedData);
         setData(formattedData);
 
-        setYearFilter("2023"); //TODO AUTOMATIC SELECT THE MOST CURRENT YEAR IN THE DATA AS DEFAULT.
+        //Use the most current year as default filter
+        setYearFilter(mostCurrentYear.toString());
         setSpeciesFilter("Corn"); //TODO SELECT THE CORRECT VALUE DEPENDING ON THE USER.
         return setData(formattedData);
       });
