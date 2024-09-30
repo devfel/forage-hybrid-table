@@ -485,7 +485,7 @@ export function TransactionTable() {
 
         <Button className="tutorial-button" variant="contained">
           <a
-            href="https://nwdistrict.ifas.ufl.edu/phag/2022/06/10/introducing-the-new-uf-silage-hybrid-decision-tool/"
+            href="https://www.youtube.com/watch?v=CjeumRMMWf0"
             target="_blank"
           >
             Tutorial
