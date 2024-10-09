@@ -1,28 +1,28 @@
 {
   "files": {
-    "main.js": "/forage-hybrid-table/static/js/main.340535e3.chunk.js",
-    "main.js.map": "/forage-hybrid-table/static/js/main.340535e3.chunk.js.map",
-    "runtime-main.js": "/forage-hybrid-table/static/js/runtime-main.3969d9f9.js",
-    "runtime-main.js.map": "/forage-hybrid-table/static/js/runtime-main.3969d9f9.js.map",
-    "static/js/2.e4646b16.chunk.js": "/forage-hybrid-table/static/js/2.e4646b16.chunk.js",
-    "static/js/2.e4646b16.chunk.js.map": "/forage-hybrid-table/static/js/2.e4646b16.chunk.js.map",
-    "static/js/3.208f8f50.chunk.js": "/forage-hybrid-table/static/js/3.208f8f50.chunk.js",
-    "static/js/3.208f8f50.chunk.js.map": "/forage-hybrid-table/static/js/3.208f8f50.chunk.js.map",
+    "main.js": "/forage-hybrid-table/static/js/main.ecadb7fb.chunk.js",
+    "main.js.map": "/forage-hybrid-table/static/js/main.ecadb7fb.chunk.js.map",
+    "runtime-main.js": "/forage-hybrid-table/static/js/runtime-main.6c29ad79.js",
+    "runtime-main.js.map": "/forage-hybrid-table/static/js/runtime-main.6c29ad79.js.map",
+    "static/js/2.859dc67b.chunk.js": "/forage-hybrid-table/static/js/2.859dc67b.chunk.js",
+    "static/js/2.859dc67b.chunk.js.map": "/forage-hybrid-table/static/js/2.859dc67b.chunk.js.map",
+    "static/js/3.3f728eb7.chunk.js": "/forage-hybrid-table/static/js/3.3f728eb7.chunk.js",
+    "static/js/3.3f728eb7.chunk.js.map": "/forage-hybrid-table/static/js/3.3f728eb7.chunk.js.map",
     "static/js/4.54d3547a.chunk.js": "/forage-hybrid-table/static/js/4.54d3547a.chunk.js",
     "static/js/4.54d3547a.chunk.js.map": "/forage-hybrid-table/static/js/4.54d3547a.chunk.js.map",
     "static/js/5.d414a5a9.chunk.js": "/forage-hybrid-table/static/js/5.d414a5a9.chunk.js",
     "static/js/5.d414a5a9.chunk.js.map": "/forage-hybrid-table/static/js/5.d414a5a9.chunk.js.map",
     "index.html": "/forage-hybrid-table/index.html",
-    "static/js/2.e4646b16.chunk.js.LICENSE.txt": "/forage-hybrid-table/static/js/2.e4646b16.chunk.js.LICENSE.txt",
-    "static/js/3.208f8f50.chunk.js.LICENSE.txt": "/forage-hybrid-table/static/js/3.208f8f50.chunk.js.LICENSE.txt",
+    "static/js/2.859dc67b.chunk.js.LICENSE.txt": "/forage-hybrid-table/static/js/2.859dc67b.chunk.js.LICENSE.txt",
+    "static/js/3.3f728eb7.chunk.js.LICENSE.txt": "/forage-hybrid-table/static/js/3.3f728eb7.chunk.js.LICENSE.txt",
     "static/js/4.54d3547a.chunk.js.LICENSE.txt": "/forage-hybrid-table/static/js/4.54d3547a.chunk.js.LICENSE.txt",
     "static/js/5.d414a5a9.chunk.js.LICENSE.txt": "/forage-hybrid-table/static/js/5.d414a5a9.chunk.js.LICENSE.txt",
     "static/media/background.08602167.jpg": "/forage-hybrid-table/static/media/background.08602167.jpg",
     "static/media/logo-uf-ifas.4f5deef3.png": "/forage-hybrid-table/static/media/logo-uf-ifas.4f5deef3.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.3969d9f9.js",
-    "static/js/2.e4646b16.chunk.js",
-    "static/js/main.340535e3.chunk.js"
+    "static/js/runtime-main.6c29ad79.js",
+    "static/js/2.859dc67b.chunk.js",
+    "static/js/main.ecadb7fb.chunk.js"
   ]
 }
